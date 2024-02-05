@@ -1,4 +1,4 @@
-# web
+<!-- # web
 
 ## Project setup
 ```
@@ -140,4 +140,4 @@ web
 │     └─ MainPage.vue
 └─ vue.config.js
 
-```
+``` -->

@@ -1,6 +1,6 @@
 <template>
     <div class="productCard">
-        <a :href="'/productdetail/'+ Product.productIdx">
+        <a :href="'/productdetail/' + Product.productIdx">
             <img :src="Product.productImage" :alt="Product.productImage" class="productsCardImage">
         </a>
         <div class="productCardInfo">
@@ -16,8 +16,13 @@
 
                 <div class="productCardInfoBottom">
                     <div v-text="Product.price" class="priceBefore"></div>
-                    <div v-text="Product.salePrice" class="priceAfter"></div>
-                    <div class="discount">{{ (1.0-Product.salePrice/Product.price).toFixed(2)*100+'%'  }}</div>
+                    <div class="salePrice">
+                        <span class="discount">{{ (100 - (Product.salePrice / Product.price) * 100).toFixed(2) + '%' }}</span>
+                        <div v-text="Product.salePrice" class="priceAfter"></div>
+
+                    </div>
+
+
                 </div>
             </a>
         </div>
@@ -34,33 +39,22 @@ export default {
     name: 'ProductCardComponent',
     data() {
         return {
-
-            // productIdx: "1",
-            // productImage: require("../assets/logo.png"),
-            // brandName: "brand",
-            // productName: "product",
-            // priceBefore: "200000",
-            // priceAfter: "1000",
-            // discount: "100%",
-            // likeState: false,
-            likeIconClass: [],
-            likeState: this.like,
         }
     },
-    props: ["Product","like"],
+    props: ["Product", "like"],
     methods: {
         clickLike: function () {
             console.log("likebutton clicked");
-            
+
             // 좋아요 취소
             if (this.like) {
                 this.likesStore.cancelLike(this.Product.productIdx);
-             
-                this.likesStore.indexList = this.likesStore.indexList.filter((index)=>{
-                    return this.Product.productIdx!=index;
+
+                this.likesStore.indexList = this.likesStore.indexList.filter((index) => {
+                    return this.Product.productIdx != index;
                 });
             }
-            else { 
+            else {
                 //좋아요 추가
                 this.likesStore.addLike(this.Product.productIdx);
                 // this.likeState = !this.likeState;
@@ -69,17 +63,17 @@ export default {
             }
 
             // TODO: 백엔드에 like 추가 요청
-        },  
+        },
     },
     computed: {
-    // 배열을 전달하지 않고, 스토어를 하나씩 전달합니다.
-    // 각 스토어는 ID 뒤에 'Store'를 붙여서 액세스할 수 있습니다.
-		// this.counterStore
-    ...mapStores(useLikesStore)
-  },
-  mounted(){
-    
-  }
+        // 배열을 전달하지 않고, 스토어를 하나씩 전달합니다.
+        // 각 스토어는 ID 뒤에 'Store'를 붙여서 액세스할 수 있습니다.
+        // this.counterStore
+        ...mapStores(useLikesStore)
+    },
+    mounted() {
+
+    }
 
 }
 </script>
@@ -102,7 +96,7 @@ button {
     max-width: 250px;
     max-height: 600px;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     margin: 0px auto;
 }
 
@@ -125,6 +119,7 @@ button {
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin: 10px auto;
 }
 
 .productCardInfoTop {
@@ -141,7 +136,8 @@ button {
 
 .productCardInfoBottom {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
 }
 
 .productName {
@@ -159,19 +155,19 @@ button {
 .priceBefore {
     /* font-weight: 700; */
     text-decoration: line-through;
-    font-size: 10px;
+    font-size: 15px;
     color: gray;
 }
 
 .priceAfter {
     font-weight: 700;
     color: black;
-    font-size: 20px;
+    font-size: 17px;
+    margin-left: 12px;
 }
 
 .discount {
-    position: absolute;
-    right: 10px;
+    position: relative;
     font-weight: 700;
     color: orange;
 }
@@ -179,6 +175,10 @@ button {
 .products-grid-item-info-like-btn {
     position: absolute;
     right: 5px;
+}
+.salePrice{
+    display: flex;
+    flex-direction: row;
 }
 </style>
   

@@ -17,7 +17,6 @@
     <div class="global_search">
       <h1
         class="symbol"
-        onclick="javascript:GA4EventPush('header_click', 'logo', '', ''); AMPLITUDE.LogClickEvent(1,'click_com_logo','com_logo');"
       >
         <a href="/">
           <img
@@ -108,11 +107,9 @@
                           :key="idx"
                           class="dropdown-menu-list-item"
                         >
-                          <a
-                            class="dropdown-menu-list-item-link"
-                            href="brand"
-                            >{{ category.categoryName }}</a
-                          >
+                          <a class="dropdown-menu-list-item-link" href="/product">{{
+                            category.categoryName
+                          }}</a>
                         </li>
                       </ul>
                     </div>
@@ -130,11 +127,9 @@
                           :key="idx"
                           class="dropdown-menu-list-item"
                         >
-                          <a
-                            class="dropdown-menu-list-item-link"
-                            href="brand"
-                            >{{ style.styleName }}</a
-                          >
+                          <a class="dropdown-menu-list-item-link" href="/product">{{
+                            style.styleName
+                          }}</a>
                         </li>
                       </ul>
                     </div>
@@ -152,7 +147,7 @@
                           :key="idx"
                           class="dropdown-menu-list-item"
                         >
-                          <a class="dropdown-menu-list-item-link" href="brand">
+                          <a class="dropdown-menu-list-item-link" href="/product">
                             {{ type.typeName }}
                           </a>
                         </li>
@@ -170,7 +165,6 @@
 </template>
 
 <script>
-import VueJwtDecode from "vue-jwt-decode";
 import { mapStores } from "pinia";
 import { useBrandStore } from "../stores/useBrandStore";
 export default {
@@ -178,10 +172,10 @@ export default {
   computed: {
     ...mapStores(useBrandStore),
   },
-  mounted() {
-    this.brandStore.getBrnadPage(1, 30);
-    this.brands = this.brandStore.brandPage;
-  },
+  mounted(){
+      this.brandStore.getBrnadPage(1,30);
+      this.brands = this.brandStore.brandPage;
+    },
   data() {
     return {
       // TODO DB에서든 어디서든 추가
@@ -239,8 +233,7 @@ export default {
     isSellerLogin() {
       const token = sessionStorage.getItem("token");
       if (token) {
-        const role = VueJwtDecode.decode(token).ROLE || [];
-        console.log(role);
+        const role = JSON.parse(atob(token.split(".")[1])).ROLE || [];
         if (role.includes("ROLE_SELLER")) {
           return true;
         } else {
@@ -687,10 +680,12 @@ header .global_nav_wrap {
 
 header .global_nav_wrap .global_nav {
   display: flex;
+  height: 100%;
 }
 
 header .global_nav_wrap .nav {
   display: flex;
+  height: 100%;
 }
 
 header .global_nav_wrap .nav > li > a {

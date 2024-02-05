@@ -6,8 +6,23 @@ const backend = "http://localhost:8080";
 const storedToken = sessionStorage.getItem("token");
 
 export const useReviewStore = defineStore("review", {
-  state: () => ({ reviews: [], productIdx: 0 }),
+  state: () => ({ reviews: [], productIdx: 0, isReviewExist: true }),
   actions: {
+    async getReviewList() {
+      try {
+        let response = await axios.get(backend + "/review/list", {
+          headers: {
+            Authorization: `Bearer ${storedToken}`,
+          },
+        });
+        this.reviews = response.data.result;
+        if (response.data.result.length !== 0) {
+          this.isReviewExist = false;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    },
     async getReview(idx) {
       try {
         let response = await axios.get(backend + "/review/list/" + idx, {
@@ -55,10 +70,29 @@ export const useReviewStore = defineStore("review", {
             },
           }
         );
-
         console.log("Review submitted successfully:", response.data);
       } catch (error) {
         console.error("Error submitting review:", error);
+      }
+    },
+    async deleteReview(reviewIdx) {
+      try {
+        const response = await axios.delete(
+          backend + "/review/delete/" + reviewIdx,
+          {
+            headers: {
+              Authorization: `Bearer ${storedToken}`,
+            },
+          }
+        );
+        if (response.data.isSuccess === true) {
+          alert("리뷰가 삭제되었습니다.");
+          window.location.href = "/UserReview";
+        } else {
+          alert("리뷰를 삭제할 수 없습니다.");
+        }
+      } catch (e) {
+        console.error(e);
       }
     },
   },
