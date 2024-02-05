@@ -6,7 +6,7 @@ const backend = "http://localhost:8080";
 const storedToken = sessionStorage.getItem("token");
 
 export const useQnaStore = defineStore("qna", {
-  state: () => ({ qnas: [], isQuestionExist: true }),
+  state: () => ({ qnas: [], productQnas: [], isQuestionExist: true }),
   actions: {
     async getQna() {
       try {
@@ -25,7 +25,38 @@ export const useQnaStore = defineStore("qna", {
         // 에러 처리 로직 추가
       }
     },
-
+    async getProductQna(idx) {
+      try {
+        const response = await axios.get(
+          backend + "/question/productQnA/list/" + idx + "/1/50"
+        );
+        
+        this.productQnas = response.data.result;
+      } catch (error) {
+        console.error("에러 발생:", error);
+        // 에러 처리 로직 추가
+      }
+    },
+    async registerProductQna(data) {
+      let token = sessionStorage.getItem("token");
+      let postRegisterQuestionReq = JSON.stringify(data);
+      try {
+        await axios.post(
+          backend + "/question/register", postRegisterQuestionReq,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': "Bearer " + token,
+            },
+          }
+        );
+        window.location.reload();
+        
+      } catch (error) {
+        console.error("에러 발생:", error);
+        // 에러 처리 로직 추가
+      }
+    },
     async deleteQuestion(questionIdx) {
       try {
         const response = await axios.delete(

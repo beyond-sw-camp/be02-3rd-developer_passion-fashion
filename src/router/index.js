@@ -22,9 +22,10 @@ import UserCoupon from "../page/UserCoupon.vue";
 import UserOrdersSuccess from "../page/UserOrdersSuccess.vue";
 import UserMileage from "../page/UserMileage.vue";
 import UserLikes from "../page/UserLikes.vue";
+import UserReview from "../page/UserReview";
 import UserQuestion from "../page/UserQuestion.vue";
 import BrandDetailPage from "../page/BrandDetailPage.vue";
-import UserReview from "../page/UserReview.vue";
+import UserReviewRegister from "../page/UserReviewRegister.vue";
 import KakaoLogIn from "../page/KakaoLogIn";
 
 const router = createRouter({
@@ -50,7 +51,7 @@ const router = createRouter({
     { path: "/brand/:idx", component: BrandDetailPage },
 
     // 권한 필요 페이지
-    { path: "/UserReview", component: UserReview },
+    { path: "/UserReviewRegister", component: UserReviewRegister },
     { path: "/UserCoupon", component: UserCoupon },
     { path: "/UserMileage", component: UserMileage },
     { path: "/productRegister", component: Productregister },
@@ -63,6 +64,7 @@ const router = createRouter({
     { path: "/UserUpdate1", component: UserUpdate1 },
     { path: "/UserUpdate2", component: UserUpdate2 },
     { path: "/UserLikes", component: UserLikes },
+    { path: "/UserReview", component: UserReview },
   ],
 });
 
@@ -71,7 +73,7 @@ export default router;
 router.beforeEach((to, from, next) => {
   // 로그인이 필요한 페이지
   const authPages = [
-    "/UserReview",
+    "/UserReviewRegister",
     "/UserMileage",
     "/productregister",
     "/UserCoupon",
@@ -85,6 +87,7 @@ router.beforeEach((to, from, next) => {
     "/UserUpdate2",
     "/UserLikes",
     "/UserQnA",
+    "/UserReview"
   ];
 
   if (authPages.includes(to.fullPath)) {

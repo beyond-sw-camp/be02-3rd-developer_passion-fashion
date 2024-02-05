@@ -87,6 +87,7 @@ export default {
   flex-flow: row;
   justify-content: center;
   align-items: center;
+  list-style: none;
 }
 
 .inner-footer-nav a {
@@ -147,4 +148,5 @@ export default {
   font-size: 11px;
   margin-left: 7px;
 }
+
 </style>

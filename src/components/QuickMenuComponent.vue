@@ -84,24 +84,6 @@ export default {
 </script>
 
 <style scoped>
-  button {
-    border: 0px;
-    background-color: transparent;
-    padding: 0px;
-    cursor: pointer;
-    vertical-align: middle;
-    outline: none;
-    appearance: none;
-  }
-  
-  body,
-  input,
-  select,
-  textarea,
-  button {
-    font-family: ProximaNova-Regular, 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
-    line-height: 1;
-  }
 .quickmenu {
   position: fixed;
   right: 40px;
@@ -130,6 +112,9 @@ export default {
 .quickmenu .inner-quickmenu .btn {
   margin-top: 6px;
   transition: all 0.3s ease 0s;
+  border: none;
+  color: white;
+  background-color: transparent;
 }
 
 .quickmenu .inner-quickmenu .btn.btn-top.active {
