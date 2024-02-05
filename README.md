@@ -26,7 +26,7 @@
 ![](https://velog.velcdn.com/images/thanks9807/post/0451f9a0-1c9e-4919-9465-544705aa5886/image.gif)
 
 * 좋아요 기능
-![]
+![좋아요](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/1631648b-4d22-4237-81c2-6808a91c186c)
 
 * 장바구니 상품 담기
 ![상품_장바구니에 담기](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/48f05093-ec79-460b-8268-d25a5c8e0d9e)
