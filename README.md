@@ -17,7 +17,7 @@
 
 
 * 로그인 회원가입
-![](https://velog.velcdn.com/images/thanks9807/post/1f1f1f9b-43f1-4e7c-999a-d8ab4c8f9b06/image.gif)
+![로그인기능](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/a2f20bac-5956-4d73-af92-2dbaaad7f1fb)
 
 * 상품 상세 페이지 진입
 
@@ -26,10 +26,11 @@
 ![](https://velog.velcdn.com/images/thanks9807/post/0451f9a0-1c9e-4919-9465-544705aa5886/image.gif)
 
 * 좋아요 기능
-![](https://velog.velcdn.com/images/thanks9807/post/3c589348-b2ad-4412-b41e-a25aa995649c/image.gif)
+![]
 
 * 장바구니 상품 담기
-![](https://velog.velcdn.com/images/thanks9807/post/48c52705-475d-4974-8316-8de82a43fe19/image.gif)
+![]
+
 
 * 장바구니 상품 삭제
 ![cart삭제](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/0650804b-4d39-4c76-a80c-5f5569763681)
