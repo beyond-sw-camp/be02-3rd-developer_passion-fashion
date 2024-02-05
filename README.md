@@ -11,6 +11,10 @@
   **쇼핑시간을 단축** 시켜주는 **"<span style="color:blue">개인 맞춤형 패션 플랫폼 서비스"</span>** 를 제공한다.
 
 
+## 프로젝트 설계
+![](https://velog.velcdn.com/images/thanks9807/post/4916f6db-1216-40a4-a377-b2f2d8692636/image.jpg)
+
+
 ---
 ## 기능 명세서
 [FIGIMA 링크](https://www.figma.com/file/y0feF1Z0msfu71CPTd7Xaj/Smart-WMS(%EA%B8%B0%EB%8A%A5-%EC%A0%95%EC%9D%98%EC%84%9C-%26-%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84%EC%84%9C)-(Community)?type=design&node-id=0-1&mode=design&t=I2pl03HfXriWLR74-0)
