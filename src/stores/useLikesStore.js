@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-// const backend = 'https://www.lonuashop.kro.kr/api';
-const backend = "http://localhost:8080";
+const backend = 'https://www.lonuashop.kro.kr/api';
+// const backend = "http://localhost:8080";
 const storedToken = sessionStorage.getItem("token");
 export const useLikesStore = defineStore("likes", {
   state: () => ({
@@ -67,7 +67,6 @@ export const useLikesStore = defineStore("likes", {
       this.isLoading = false;
     },
     async addLike(productIdx) {
-      let backend = "http://localhost:8080";
       await axios
         .get(backend + "/likes/" + productIdx, {
           headers: {
@@ -90,7 +89,6 @@ export const useLikesStore = defineStore("likes", {
           headers: {
             Authorization: `Bearer ${storedToken}`,
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "http://localhost:8082",
           },
         })
         .then((res) => {

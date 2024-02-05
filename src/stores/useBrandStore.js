@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-// const backend = 'https://www.lonuashop.kro.kr/api';
-const backend = "http://localhost:8080";
+const backend = 'https://www.lonuashop.kro.kr/api';
+// const backend = "http://localhost:8080";
 // const storedToken = sessionStorage.getItem("token");
 export const useBrandStore = defineStore("brand", {
   state: () => ({ isLoading: false, brandPage: [] }),
