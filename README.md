@@ -34,6 +34,11 @@
 
 * 장바구니 상품 삭제
 ![cart삭제](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/0650804b-4d39-4c76-a80c-5f5569763681)
+
+
+* 쿠폰
+![쿠폰 (1)](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/8db32795-aaf5-4ed9-8f75-929e1a3a713d)
+
 ---
 
 
