@@ -16,11 +16,11 @@
 [FIGIMA 링크](https://www.figma.com/file/y0feF1Z0msfu71CPTd7Xaj/Smart-WMS(%EA%B8%B0%EB%8A%A5-%EC%A0%95%EC%9D%98%EC%84%9C-%26-%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84%EC%84%9C)-(Community)?type=design&node-id=0-1&mode=design&t=I2pl03HfXriWLR74-0)
 
 
-* 로그인 회원가입
+* 로그인
 ![로그인기능](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/a2f20bac-5956-4d73-af92-2dbaaad7f1fb)
 
 * 상품 상세 페이지 진입
-
+![상품상세2](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/baa2c14d-40ea-4f9c-9830-39d1315a9c1d)
 
 * 헤더 브랜드 상세 페이지
 ![](https://velog.velcdn.com/images/thanks9807/post/0451f9a0-1c9e-4919-9465-544705aa5886/image.gif)
