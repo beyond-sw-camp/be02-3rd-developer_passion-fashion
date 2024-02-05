@@ -12,47 +12,89 @@
 
 
 ## 프로젝트 설계
-![](https://velog.velcdn.com/images/thanks9807/post/4916f6db-1216-40a4-a377-b2f2d8692636/image.jpg)
+![](https://velog.velcdn.com/images/thanks9807/post/eac55d8e-53aa-4c8d-b8fe-e68c4bf66bba/image.jpg)
 
 
 ---
 ## 기능 명세서
 [FIGIMA 링크](https://www.figma.com/file/y0feF1Z0msfu71CPTd7Xaj/Smart-WMS(%EA%B8%B0%EB%8A%A5-%EC%A0%95%EC%9D%98%EC%84%9C-%26-%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84%EC%84%9C)-(Community)?type=design&node-id=0-1&mode=design&t=I2pl03HfXriWLR74-0)
 
+<details>
+<summary> 로그인 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/a2f20bac-5956-4d73-af92-2dbaaad7f1fb"/><br>
+</div>
+</details>
 
-* 로그인
-![로그인기능](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/a2f20bac-5956-4d73-af92-2dbaaad7f1fb)
+<details>
+<summary> 회원 정보 수정 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/8fe5b3da-213c-4ae9-af48-b571aefd986f"/><br>
+</div>
+</details>
 
-* 회원 정보 수정
-![마이페이지-회원정보수정](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/8fe5b3da-213c-4ae9-af48-b571aefd986f)
+<details>
+<summary> 회원 탈퇴 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/b4c6f0e1-1672-434a-b062-eb10761b85bc"/><br>
+</div>
+</details>
 
-* 회원 탈퇴
-![마이페이지-회원탈퇴](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/b4c6f0e1-1672-434a-b062-eb10761b85bc)
+<details>
+<summary> 헤더 브랜드 상세 페이지 들어가기 기능 </summary>
+<div markdown="1"><br>
+<img src="https://velog.velcdn.com/images/thanks9807/post/0451f9a0-1c9e-4919-9465-544705aa5886/image.gif"/><br>
+</div>
+</details>
 
-* 헤더 브랜드 상세 페이지
-![](https://velog.velcdn.com/images/thanks9807/post/0451f9a0-1c9e-4919-9465-544705aa5886/image.gif)
+<details>
+<summary> 좋아요 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/1631648b-4d22-4237-81c2-6808a91c186c"/><br>
+</div>
+</details>
 
-* 좋아요 기능
-![좋아요](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/1631648b-4d22-4237-81c2-6808a91c186c)
+<details>
+<summary> 상품 상세 페이지 진입 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/baa2c14d-40ea-4f9c-9830-39d1315a9c1d"/><br>
+</div>
+</details>
 
-* 상품 상세 페이지 진입
-![상품상세2](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/baa2c14d-40ea-4f9c-9830-39d1315a9c1d)
+<details>
+<summary> 장바구니 상품 담기 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/d9bed1bd-9580-421e-8b00-cdd765a23154"/><br>
+</div>
+</details>
 
-* 장바구니 상품 담기
-!![제품상세페이지-장바구니담기](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/d9bed1bd-9580-421e-8b00-cdd765a23154)
+<details>
+<summary> 장바구니 상품 삭제 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/0650804b-4d39-4c76-a80c-5f5569763681"/><br>
+</div>
+</details>
 
+<details>
+<summary> 상품문의 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/2267b717-abcf-4859-8ed3-cb950a877680"/><br>
+</div>
+</details>
 
-* 장바구니 상품 삭제
-![cart삭제](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/0650804b-4d39-4c76-a80c-5f5569763681)
+<details>
+<summary> 쿠폰 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/8db32795-aaf5-4ed9-8f75-929e1a3a713d"/><br>
+</div>
+</details>
 
-* 상품문의
-![제품상세페이지-상품문의](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/2267b717-abcf-4859-8ed3-cb950a877680)
-
-* 쿠폰
-![쿠폰 (1)](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/8db32795-aaf5-4ed9-8f75-929e1a3a713d)
-
-* 마일리지
-![마일리지 (1)](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/69c7fda9-d65e-48ce-b1a9-685d2da71a8c)
+<details>
+<summary> 마일리지 기능 </summary>
+<div markdown="1"><br>
+<img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/69c7fda9-d65e-48ce-b1a9-685d2da71a8c"/><br>
+</div>
+</details>
 
 ---
 
