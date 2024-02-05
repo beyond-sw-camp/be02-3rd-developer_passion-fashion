@@ -39,6 +39,9 @@
 * 쿠폰
 ![쿠폰 (1)](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/8db32795-aaf5-4ed9-8f75-929e1a3a713d)
 
+* 마일리지
+![마일리지 (1)](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/69c7fda9-d65e-48ce-b1a9-685d2da71a8c)
+
 ---
 
 
