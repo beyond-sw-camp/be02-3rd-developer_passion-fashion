@@ -12,10 +12,27 @@
 
 
 ---
-## 프로젝트 구성도
+## 기능 명세서
 [FIGIMA 링크](https://www.figma.com/file/y0feF1Z0msfu71CPTd7Xaj/Smart-WMS(%EA%B8%B0%EB%8A%A5-%EC%A0%95%EC%9D%98%EC%84%9C-%26-%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84%EC%84%9C)-(Community)?type=design&node-id=0-1&mode=design&t=I2pl03HfXriWLR74-0)
 
 
+* 로그인 회원가입
+![](https://velog.velcdn.com/images/thanks9807/post/1f1f1f9b-43f1-4e7c-999a-d8ab4c8f9b06/image.gif)
+
+* 상품 상세 페이지 진입
+
+
+* 헤더 브랜드 상세 페이지
+![](https://velog.velcdn.com/images/thanks9807/post/0451f9a0-1c9e-4919-9465-544705aa5886/image.gif)
+
+* 좋아요 기능
+![](https://velog.velcdn.com/images/thanks9807/post/3c589348-b2ad-4412-b41e-a25aa995649c/image.gif)
+
+* 장바구니 상품 담기
+![](https://velog.velcdn.com/images/thanks9807/post/48c52705-475d-4974-8316-8de82a43fe19/image.gif)
+
+* 장바구니 상품 삭제
+![cart삭제](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/0650804b-4d39-4c76-a80c-5f5569763681)
 ---
 
 
