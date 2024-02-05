@@ -1,143 +1,30 @@
-# web
+![header](https://capsule-render.vercel.app/api?type=Waving&color=F7BE81&height=250&section=header&text=👕LONUA👕&desc=All%20For%20Individual%20Customized%20Fashion&descSize=20&descAlign=50&descAlignY=70&fontSize=100&animation=fadeIn&fontColor=B404AE)
 
-## Project setup
-```
-npm install
-```
+## ✨ 프로젝트 기본 소개
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+---
+- 온라인 쇼핑몰 이용자 수가 **"지속적으로 증가"** 하고 있는만큼, 쇼핑몰에 등록되는 상품의 수 역시  
+  **"기하급수적으로 늘어나"** &nbsp;&nbsp;상품 선택 시 이용자가 **선택의 어려움**을 겪고 있다.
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+- 따라서 **개인에게 맞는 옷, 스타일을 제공**하여 수많은 상품에 대한 선택의 폭을 줄임으로써  
+  **쇼핑시간을 단축** 시켜주는 **"<span style="color:blue">개인 맞춤형 패션 플랫폼 서비스"</span>** 를 제공한다.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
-```
-web
-├─ .git
-│  ├─ COMMIT_EDITMSG
-│  ├─ config
-│  ├─ description
-│  ├─ HEAD
-│  ├─ hooks
-│  │  ├─ applypatch-msg
-│  │  ├─ applypatch-msg.sample
-│  │  ├─ commit-msg
-│  │  ├─ commit-msg.sample
-│  │  ├─ fsmonitor-watchman.sample
-│  │  ├─ post-applypatch
-│  │  ├─ post-checkout
-│  │  ├─ post-commit
-│  │  ├─ post-merge
-│  │  ├─ post-receive
-│  │  ├─ post-rewrite
-│  │  ├─ post-update
-│  │  ├─ post-update.sample
-│  │  ├─ pre-applypatch
-│  │  ├─ pre-applypatch.sample
-│  │  ├─ pre-auto-gc
-│  │  ├─ pre-commit
-│  │  ├─ pre-commit.sample
-│  │  ├─ pre-merge-commit.sample
-│  │  ├─ pre-push
-│  │  ├─ pre-push.sample
-│  │  ├─ pre-rebase
-│  │  ├─ pre-rebase.sample
-│  │  ├─ pre-receive
-│  │  ├─ pre-receive.sample
-│  │  ├─ prepare-commit-msg
-│  │  ├─ prepare-commit-msg.sample
-│  │  ├─ push-to-checkout
-│  │  ├─ push-to-checkout.sample
-│  │  ├─ sendemail-validate
-│  │  ├─ sendemail-validate.sample
-│  │  ├─ update
-│  │  └─ update.sample
-│  ├─ index
-│  ├─ info
-│  │  └─ exclude
-│  ├─ logs
-│  │  ├─ HEAD
-│  │  └─ refs
-│  │     └─ heads
-│  │        └─ main
-│  ├─ objects
-│  │  ├─ 01
-│  │  │  └─ 433bca2ac76590c48fabfee8d69d7b223f48bb
-│  │  ├─ 29
-│  │  │  └─ bcb42e15a09b88a9b363c5eb8db45db942bcc1
-│  │  ├─ 3e
-│  │  │  ├─ 5a13962197105f2078d2a224cc57dfa09b4893
-│  │  │  └─ f4c4f11e8f14c41e41dc8e4952d56461fbd590
-│  │  ├─ 40
-│  │  │  └─ 3adbc1e527906a4aa59558cd582c20bcd1d738
-│  │  ├─ 46
-│  │  │  └─ b57b2b32227dd4f5829a471eeda6109bc6ae43
-│  │  ├─ 4a
-│  │  │  └─ afc5f6ed86fe6dff8d4b6be59290cbdeb61656
-│  │  ├─ 4c
-│  │  │  └─ 3373726979dfbbbf833a2d46527dc3a8f27de8
-│  │  ├─ 59
-│  │  │  └─ 1a0312d9dac2a6f0e766b2a8f9151d62decd94
-│  │  ├─ 60
-│  │  │  └─ 7ec4c791fa594f08a1486e967abe646e142857
-│  │  ├─ 64
-│  │  │  └─ afaea7e0f99e8262f35bd394af63c86e2c04b3
-│  │  ├─ 65
-│  │  │  └─ 10c6a45035b6573151ff6196e4bdea78deb75d
-│  │  ├─ 87
-│  │  │  └─ 9051a29739fdfb17ae82ed23b53fac251c2b7e
-│  │  ├─ 91
-│  │  │  └─ 0e297e0f53483455d2aa432887c3b7975d6c11
-│  │  ├─ 99
-│  │  │  └─ bf960e214e73e5513e054ac34c331b6d4b1a46
-│  │  ├─ ae
-│  │  │  └─ 73f2f40c65cc0b178b84e41fd8c142f81a0678
-│  │  ├─ df
-│  │  │  └─ 36fcfb72584e00488330b560ebcf34a41c64c2
-│  │  ├─ e9
-│  │  │  └─ 558405fdcc02f12d757acb308e02937a7444f1
-│  │  ├─ f3
-│  │  │  └─ d2503fc2a44b5053b0837ebea6e87a2d339a43
-│  │  ├─ info
-│  │  └─ pack
-│  └─ refs
-│     ├─ heads
-│     │  └─ main
-│     └─ tags
-├─ .gitignore
-├─ babel.config.js
-├─ jsconfig.json
-├─ package-lock.json
-├─ package.json
-├─ public
-│  ├─ favicon.ico
-│  ├─ index.html
-│  └─ styles.css
-├─ README.md
-├─ src
-│  ├─ App.vue
-│  ├─ assets
-│  │  └─ logo.png
-│  ├─ components
-│  │  ├─ FooterComponent.vue
-│  │  ├─ HeaderComponent.vue
-│  │  ├─ HelloWorld.vue
-│  │  └─ TestComponent.vue
-│  ├─ main.js
-│  └─ page
-│     └─ MainPage.vue
-└─ vue.config.js
+---
 
-```# be02-3rd-developer_passion-fasion
+
+## 📌 기술 스택
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/L i n u x-FCC624?style=flat&logo=linux&logoColor=black"></a>
+&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/MySQL InnoDB-4479A1?style=flat&logo=MySQL&logoColor=white"/></a>
+&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/CentOS   8-262577?style=flat&logo=centos&logoColor=white&color=purple"/></a></a>
+&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat&logo=springBoot&logoColor=white&color=green"/></a></a>
+&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Amazon AWS-232F3E?style=flat&logo=AmazonAWS&logoColor=black&color=orange"/></a></a>
+
+---
+
+## ✍ 프로젝트 진행 현황
+
+- ### 2023.12.27. ~ 2024.01.12. : 개인 진행
+- ### 2024.01.12. ~ 2024.01.17. : 백엔드 미니 팀프로젝트로 진행
+- ### 2024.01.18. ~ : 개인 진행
