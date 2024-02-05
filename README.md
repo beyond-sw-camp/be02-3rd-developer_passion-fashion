@@ -12,6 +12,11 @@
 
 
 ---
+## 프로젝트 구성도
+[FIGIMA 링크](https://www.figma.com/file/y0feF1Z0msfu71CPTd7Xaj/Smart-WMS(%EA%B8%B0%EB%8A%A5-%EC%A0%95%EC%9D%98%EC%84%9C-%26-%ED%99%94%EB%A9%B4-%EC%84%A4%EA%B3%84%EC%84%9C)-(Community)?type=design&node-id=0-1&mode=design&t=I2pl03HfXriWLR74-0)
+
+
+---
 
 
 ## 📌 기술 스택
