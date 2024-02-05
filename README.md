@@ -77,7 +77,7 @@
          <summary><b>회원 가입 및 이메일 인증</b></summary>
                   <br>
          <p><b>➡ 회원이 회원 정보 [ 이메일, 패스워드, 이름, 생년월일, 성별, 전화번호, 집주소, 선호 스타일, <br>
-         &nbsp;　상체 유형, 하체 유형 ] 를 입력하여 회원 가입을 진행한다.</b></p>
+         &nbsp;&nbsp;　상체 유형, 하체 유형 ] 를 입력하여 회원 가입을 진행한다.</b></p>
          <p><b>➡ 회원이 입력한 이메일로 온 인증메일을 통해 이메일 인증을 완료한 뒤 로그인한다.</b></p><br>
          <p><img src="https://github.com/beyond-sw-camp/be02-2nd-developer_passion-fashion/assets/148875644/9d9cd537-4604-45cf-99d2-7ff0e4c6f420"/></p>
          </details><br>
@@ -85,9 +85,9 @@
          <summary><b>본인의 회원 정보 수정</b></summary>
                   <br>
          <p><b>➡ 회원이 마이페이지의 "회원정보 수정" 페이지에서 비밀번호를 입력 후, 비밀번호가 일치하면 <br>
-         &nbsp;　회원정보 수정 페이지로 이동된다.</b></p>
+         &nbsp;&nbsp;　회원정보 수정 페이지로 이동된다.</b></p>
          <p><b>➡ 회원이 수정하고 싶은 내용 [ 집 주소, 전화번호, 선호 스타일, 상/하체 유형 등 ] 을 입력하여<br> 
-         &nbsp;　회원 정보를 수정한다.</b></p><br>
+         &nbsp;&nbsp;　회원 정보를 수정한다.</b></p><br>
          <p><img src="https://github.com/beyond-sw-camp/be02-2nd-developer_passion-fashion/assets/148875644/97aff7be-60d4-48a7-b39f-1d137c67149a"/></p>
          </details><br>
 	 <details>
@@ -195,7 +195,7 @@
     	 <details>
          <summary><b>판매자 회원가입</b></summary>
                   <br>
-         <p><b>➡ 판매자가 [ 이메일 아이디, 패스워드, 브랜드명, 브랜드 고유키, 판매자명 ] 을 입력하여 회원가입한다. <br>
+         <p><b>➡ 판매자가 [ 이메일 아이디, 패스워드, 브랜드명, 브랜드 고유키, 판매자명 ] 을 입력하여 회원가입한다. <br><br>
          <p><img src="https://github.com/beyond-sw-camp/be02-2nd-developer_passion-fashion/assets/148875644/81fa9faa-a9ed-4a73-a487-7f822004922d"/></p>
          </details><br>
     	 <details>
@@ -207,8 +207,8 @@
 	 <details>
          <summary><b>판매 상품 등록</b></summary>
                   <br>
-         <p><b>➡ 브랜드(판매자)가 [ 브랜드 IDX, 카테고리 IDX, 스타일 IDX, 상품명, 상품수량, 가격, 상의 및 하의에 대한 치수, 상품 이미지<br>
-&nbsp;&nbsp;&nbsp;　및 상품 설명 이미지 ] 를 입력하여 판매 상품을 등록한다.</b></p><br>
+         <p><b>➡ 브랜드(판매자)가 [ 브랜드 IDX, 카테고리 IDX, 스타일 IDX, 상품명, 상품수량, 가격, 상의 및 하의에 대한 치수,<br> 
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상품 이미지 및 상품 설명 이미지 ] 를 입력하여 판매 상품을 등록한다.</b></p><br>
          <p><img src=""/></p>
          </details><br>
     </div>
