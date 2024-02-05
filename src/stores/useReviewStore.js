@@ -6,7 +6,7 @@ const backend = "http://localhost:8080";
 const storedToken = sessionStorage.getItem("token");
 
 export const useReviewStore = defineStore("review", {
-  state: () => ({ reviews: [], productIdx: 0, isReviewExist: true }),
+  state: () => ({ reviews: [], productIdx: 0, isReviewExist: true, isSuccess: false }),
   actions: {
     async getReviewList() {
       try {
@@ -70,8 +70,14 @@ export const useReviewStore = defineStore("review", {
             },
           }
         );
-        console.log("Review submitted successfully:", response.data);
+        console.log(response);
+        if(response.data.isSuccess === true) {
+          console.log(response.data.isSuccess)
+          alert("리뷰가 작성되었습니다.")
+          window.location.href = "/UserReview";
+        }
       } catch (error) {
+        this.isSuccess = false;
         console.error("Error submitting review:", error);
       }
     },

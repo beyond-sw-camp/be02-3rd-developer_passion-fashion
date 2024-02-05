@@ -147,10 +147,10 @@ export const useUserStore = defineStore("user", {
         });
 
         if (response.data.isSuccess === true) {
-          sessionStorage.removeItem(storedToken);
           alert(
             '회원 탈퇴가 성공적으로 처리되었습니다. 그동안 "LONUA" 를 이용해주셔서 감사합니다.'
           );
+          sessionStorage.removeItem("token");
           window.location.href = "/";
         }
       } catch (e) {

@@ -6,7 +6,7 @@
         <li><a href="/">home</a></li>
         <li><a href="/MainMyPage">my page</a></li>
         <li><a href="/UserQusetion">문의내역</a></li>
-        <li>리뷰</li>
+        <li>리뷰 작성</li>
       </ol>
     </div>
 
@@ -79,16 +79,11 @@ export default {
       imagePreview: null,
     };
   },
+  components: { MyPageComponent },
   computed: {
     ...mapStores(useReviewStore),
   },
   methods: {
-    async submitReview() {
-      await this.reviewStore.submitReview(this.review, this.reviewPhoto);
-      if (this.reviewStore.isSuccess) {
-        this.$router.push({ path: "/MainMyPage" });
-      }
-    },
     previewImage(event) {
       const file = event.target.files[0];
       if (file) {
@@ -100,8 +95,10 @@ export default {
         this.reviewPhoto = file;
       }
     },
+    submitReview() {
+      this.reviewStore.submitReview(this.review, this.reviewPhoto);
+    },
   },
-  components: { MyPageComponent },
 };
 </script>
 

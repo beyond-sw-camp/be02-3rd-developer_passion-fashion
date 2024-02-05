@@ -35,7 +35,6 @@ export default {
       console.log("click");
       this.reviewStore.productIdx = this.orders.productIdx;
       this.$router.push({ path: "/UserReviewRegister" });
-      //window.location.href = "/UserReview";
     },
   },
 };

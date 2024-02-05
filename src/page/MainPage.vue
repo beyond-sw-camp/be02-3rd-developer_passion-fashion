@@ -13,7 +13,7 @@
       >
         <span
           >WEDNESDAY OASIS <br />
-          23FW COLLECTION</span
+          24SS COLLECTION</span
         >
       </div>
       <div
@@ -24,7 +24,7 @@
       >
         <span
           >Millo Archive <br />
-          23FW COLLECTION</span
+          24SS COLLECTION</span
         >
       </div>
     </div>
@@ -33,33 +33,26 @@
       <span>TRENDING NOW</span>
     </div>
 
-    <!-- <div class="trending-now-content">
-            <div class="trending-now-btns">
-                <button v-for="(trend, idx) in trends" :key="idx" :class="'trending-now-content-btn'" :id="'trend' + trend.idx"
-                    type="button" @click="clickedBtn(trend.idx)">
-                    {{ trend.trendName }}
-                </button>
-            </div>
-        </div> -->
-
-    <!-- trending-now product -->
-    <Splide
-      :options="{
-        type: 'loop',
-        // width: &quot;auto&quot;,
-        // autoHeight: boolean = true,
-        // gap: &quot;20px&quot;,
-        perPage: 3,
-      }"
-      aria-label="My Favorite Images"
-    >
-      <SplideSlide v-for="res in products" :key="res.productIdx">
-        <ProductCardComponent
-          v-bind:Product="res"
-          v-bind:like="likesStore.indexList.includes(res.productIdx)"
-        />
-      </SplideSlide>
-    </Splide>
+    <div class="splide_contoner">
+      <!-- trending-now product -->
+      <Splide
+        :options="{
+          type: 'loop',
+          // width: &quot;auto&quot;,
+          pagination: false,
+          // gap: &quot;20px&quot;,
+          perPage: 3,
+        }"
+        aria-label="My Favorite Images"
+      >
+        <SplideSlide v-for="res in products" :key="res.productIdx">
+          <ProductCardComponent
+            v-bind:Product="res"
+            v-bind:like="likesStore.indexList.includes(res.productIdx)"
+          />
+        </SplideSlide>
+      </Splide>
+    </div>
   </div>
 </template>
 
@@ -416,6 +409,10 @@ button {
 .priority.unactive {
   color: gray;
   font-weight: 300;
+}
+
+.splide_contoner{
+  height: 120%;
 }
 
 /* 우선순위 .css */

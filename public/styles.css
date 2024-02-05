@@ -32,6 +32,7 @@ a {
   text-rendering: auto;
 }
 
+
 .fa-heart-o:before {
   content: "\f08a";
 }
