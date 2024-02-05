@@ -29,7 +29,7 @@
 ![]
 
 * 장바구니 상품 담기
-![]
+![상품_장바구니에 담기](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/48f05093-ec79-460b-8268-d25a5c8e0d9e)
 
 
 * 장바구니 상품 삭제
