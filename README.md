@@ -19,8 +19,11 @@
 * 로그인
 ![로그인기능](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/a2f20bac-5956-4d73-af92-2dbaaad7f1fb)
 
-* 상품 상세 페이지 진입
-![상품상세2](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/baa2c14d-40ea-4f9c-9830-39d1315a9c1d)
+* 회원 정보 수정
+![마이페이지-회원정보수정](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/8fe5b3da-213c-4ae9-af48-b571aefd986f)
+
+* 회원 탈퇴
+![마이페이지-회원탈퇴](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/b4c6f0e1-1672-434a-b062-eb10761b85bc)
 
 * 헤더 브랜드 상세 페이지
 ![](https://velog.velcdn.com/images/thanks9807/post/0451f9a0-1c9e-4919-9465-544705aa5886/image.gif)
@@ -28,13 +31,18 @@
 * 좋아요 기능
 ![좋아요](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/1631648b-4d22-4237-81c2-6808a91c186c)
 
+* 상품 상세 페이지 진입
+![상품상세2](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/baa2c14d-40ea-4f9c-9830-39d1315a9c1d)
+
 * 장바구니 상품 담기
-![상품_장바구니에 담기](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/48f05093-ec79-460b-8268-d25a5c8e0d9e)
+!![제품상세페이지-장바구니담기](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/d9bed1bd-9580-421e-8b00-cdd765a23154)
 
 
 * 장바구니 상품 삭제
 ![cart삭제](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/0650804b-4d39-4c76-a80c-5f5569763681)
 
+* 상품문의
+![제품상세페이지-상품문의](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/2267b717-abcf-4859-8ed3-cb950a877680)
 
 * 쿠폰
 ![쿠폰 (1)](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/40519125/8db32795-aaf5-4ed9-8f75-929e1a3a713d)
