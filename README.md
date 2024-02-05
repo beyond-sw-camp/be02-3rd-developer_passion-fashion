@@ -21,8 +21,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white&color=darkblue"></a>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Vue-FC08D?style=flat&logo=Vue.js&logoColor=black&color=lightgreen"></a>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Ununtu-E95420?style=flat&logo=Ubuntu&logoColor=black&color=darkorange"></a>
-&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/nginx-%23009639.svg?style=flat&logo=nginx&logoColor=white"><br><br>
-
+&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/nginx-%23009639.svg?style=flat&logo=nginx&logoColor=white"><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white&color=black"></a>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=Git&logoColor=white&color=ffa500"></a>
 &nbsp;&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/MySQL InnoDB-4479A1?style=flat&logo=MySQL&logoColor=white"/></a>
@@ -55,12 +54,6 @@
          <p><b>➡ 회원이 회원 정보 [ 이메일, 패스워드, 이름, 생년월일, 성별, 전화번호, 집주소, 선호 스타일, 상체 유형, 하체 유형 ] 를<br>
  &nbsp;&nbsp;&nbsp;　입력하여 회원 가입을 진행한다.</b></p><br>
          <p><img src="https://github.com/beyond-sw-camp/be02-2nd-developer_passion-fashion/assets/148875644/8e207210-f31a-4a89-9d3b-0df528299055"/></p>
-         </details><br>
-	 <details>
-         <summary><b>REQ-0022. 본인의 회원 정보 조회</b></summary>
-                  <br>
-         <p><b>➡ 회원이 로그인한 기록을 통해 본인의 회원 정보를 조회한다.</b></p><br>
-         <p><img src="https://github.com/beyond-sw-camp/be02-2nd-developer_passion-fashion/assets/148875644/5c1919b7-bbfd-4e95-9f9d-cf3fc4a7bd73"/></p>
          </details><br>
 	 <details>
          <summary><b>REQ-0023. 본인의 회원 정보 수정</b></summary>
