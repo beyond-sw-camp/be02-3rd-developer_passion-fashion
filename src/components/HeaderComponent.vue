@@ -211,6 +211,7 @@ export default {
         { styleName: "스트릿" },
         { styleName: "비지니스 캐주얼" },
         { styleName: "힙합" },
+        { styleName: "페미닌" },
         { styleName: "오피스" },
         { styleName: "스포츠" },
       ],
