@@ -26,7 +26,7 @@ export const useCartStore = defineStore("cart", {
   actions: {
     updateTotalPrice(updatePrice) {
       this.totalPrice = updatePrice;
-      this.totalPoint = Math.floor(this.totalPrice / 100);
+      this.totalPoint = Math.floor(this.totalPrice / 100).toLocaleString();
       this.cartCount = this.productIdxList.length;
     },
     // 장바구니 목록 조회
@@ -154,7 +154,7 @@ export const useCartStore = defineStore("cart", {
         couponIdxList: this.couponIdxList,
         productCouponMap: this.productCouponMap,
         ordersCartIdxList: this.ordersCartIdxList,
-        mileage: parseInt(this.totalPoint),
+        mileage: parseInt(this.totalPoint.replace(',', ''))
       };
 
       // 아임포트 결제 요청

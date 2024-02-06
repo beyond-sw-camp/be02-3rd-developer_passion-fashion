@@ -176,7 +176,7 @@
                 <strong>적립예정 포인트</strong>
                 <p>
                   <em id="totalPoint">{{
-                    cartStore.totalPoint
+                    cartStore.totalPoint.toLocaleString()
                   }}</em>
                   p
                 </p>
