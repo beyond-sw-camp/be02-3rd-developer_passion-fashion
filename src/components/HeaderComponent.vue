@@ -107,7 +107,7 @@
                           :key="idx"
                           class="dropdown-menu-list-item"
                         >
-                          <a class="dropdown-menu-list-item-link" href="/product">{{
+                        <a class="dropdown-menu-list-item-link" :href="'/product/'+idx">{{
                             category.categoryName
                           }}</a>
                         </li>

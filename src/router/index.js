@@ -27,6 +27,7 @@ import UserQuestion from "../page/UserQuestion.vue";
 import BrandDetailPage from "../page/BrandDetailPage.vue";
 import UserReviewRegister from "../page/UserReviewRegister.vue";
 import KakaoLogIn from "../page/KakaoLogIn";
+import CategoryProductPage from "../page/CategoryProductPage";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +43,7 @@ const router = createRouter({
     { path: "/product", component: ProductPage },
     { path: "/brand", component: BrandPage },
     { path: "/productdetail/:idx", component: ProductDetail },
+    { path: "/product/:CategoryIdx", component: CategoryProductPage },
     { path: "/SellerSignUp", component: SellerSignUp },
     { path: "/UserLogIn", component: UserLogIn },
     { path: "/SellerLogIn", component: SellerLogIn },
