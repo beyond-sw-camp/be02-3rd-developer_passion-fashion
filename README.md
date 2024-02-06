@@ -132,13 +132,13 @@
          <summary><b>카테고리별 상품 목록 조회</b></summary>
                   <br>
          <p><b>➡ 회원이 헤더에서 원하는 "카테고리를 선택" 하여 카테고리 별 상품 목록을 조회한다.</b></p><br>
-         <p><img src=""/></p>
+         <p><img src="https://github.com/hyungdoyou/LONUA_Project/assets/148875644/82be464e-b0d4-4621-90c4-374e8a8ac866"/></p>
          </details><br>
          	 <details>
          <summary><b>스타일별 상품 목록 조회</b></summary>
                   <br>
          <p><b>➡ 회원이 헤더에서 원하는 "스타일을 선택" 하여 스타일 별 상품 목록을 조회한다.</b></p><br>
-         <p><img src=""/></p>
+         <p><img src="https://github.com/hyungdoyou/LONUA_Project/assets/148875644/6e006319-b193-4816-b7e6-2cdf2fbaa608"/></p>
          </details><br>
 	 <details>
          <summary><b>상품에 대한 좋아요 기능</b></summary>
@@ -218,9 +218,9 @@
 	 <details>
          <summary><b>판매 상품 등록</b></summary>
                   <br>
-         <p><b>➡ 브랜드(판매자)가 [ 브랜드 IDX, 카테고리 IDX, 스타일 IDX, 상품명, 상품수량, 가격, 상의 및 하의에 대한 치수,<br> 
+         <p><b>➡ 브랜드(판매자)가 [ 브랜드명, 카테고리, 스타일, 상품명, 상품수량, 가격, 상의 및 하의에 대한 치수,<br> 
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상품 이미지 및 상품 설명 이미지 ] 를 입력하여 판매 상품을 등록한다.</b></p><br>
-         <p><img src=""/></p>
+         <p><img src="https://github.com/hyungdoyou/LONUA_Project/assets/148875644/a2c60f39-efe1-4ffa-916b-f88726e397f7"/></p>
          </details><br>
     </div>
 </details>
