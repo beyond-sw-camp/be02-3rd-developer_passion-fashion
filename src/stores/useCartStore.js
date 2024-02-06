@@ -26,7 +26,7 @@ export const useCartStore = defineStore("cart", {
   actions: {
     updateTotalPrice(updatePrice) {
       this.totalPrice = updatePrice;
-      this.totalPoint = Math.floor(this.totalPrice / 100).toLocaleString();
+      this.totalPoint = Math.floor(this.totalPrice / 100)
       this.cartCount = this.productIdxList.length;
     },
     // 장바구니 목록 조회
