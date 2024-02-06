@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-
-const backend = 'https://www.lonuashop.kro.kr/api';
+const backend = 'http://www.kty4563434.kro.kr/api';
+// const backend = 'https://www.lonuashop.kro.kr/api';
 // const backend = "http://localhost:8080";
 export const useProductStore = defineStore("product", {
   state: () => ({ idx:0 , product:""}),

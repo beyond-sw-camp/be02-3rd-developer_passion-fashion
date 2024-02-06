@@ -45,7 +45,10 @@ export default {
     methods: {
         clickLike: function () {
             console.log("likebutton clicked");
-
+            // 
+            if(sessionStorage.getItem("atoken") == null){
+                return;
+            }
             // 좋아요 취소
             if (this.like) {
                 this.likesStore.cancelLike(this.Product.productIdx);
@@ -58,7 +61,6 @@ export default {
                 //좋아요 추가
                 this.likesStore.addLike(this.Product.productIdx);
                 // this.likeState = !this.likeState;
-
                 this.likesStore.indexList.push(this.Product.productIdx);
             }
 

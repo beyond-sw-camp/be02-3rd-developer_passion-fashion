@@ -1,12 +1,12 @@
 <template>
   <div class="content">
-      <!-- All product -->
-      <div>
-          <section style="margin: 30px;">
-              <!-- <div class="filter-menu" id="filter-menu1">
+    <!-- All product -->
+    <div>
+      <section style="margin: 30px;">
+        <!-- <div class="filter-menu" id="filter-menu1">
                   <p>This element will fade in slowly.</p>
               </div> -->
-              <!-- <div class="filter-btns">
+        <!-- <div class="filter-btns">
                   <button class="filter-initial">
                       <i class="fa-solid fa-xmark"></i>
                   </button>
@@ -29,7 +29,7 @@
                       혜택<i class="fa-solid fa-angle-down"></i>
                   </button>
               </div> -->
-              <!-- <div class="prioritys">
+        <!-- <div class="prioritys">
                   <button class="priority active" id="lastest" onclick="priorityActive('lastest')">
                       신상품순
                   </button>
@@ -49,15 +49,16 @@
                       리뷰순
                   </button>
               </div> -->
-              <!-- 6 x 10 -->
-              <div class="products-grid-container">
-                  <!-- 자바 스크립트로 생성 -->
-                  <ProductCardComponent v-for="(product, idx) in productPage" :key="idx" :Product="product" v-bind:like="likesStore.indexList.includes(product.productIdx)" />
-                  
-              </div>
+        <!-- 6 x 10 -->
+        <div class="products-grid-container">
+          <!-- 자바 스크립트로 생성 -->
+          <ProductCardComponent v-for="(product, idx) in productPage" :key="idx" :Product="product"
+            v-bind:like="likesStore.indexList.includes(product.productIdx)" />
 
-          </section>
-      </div>
+        </div>
+
+      </section>
+    </div>
   </div>
 </template>
 
@@ -68,50 +69,51 @@ import { mapStores } from "pinia";
 import { useLikesStore } from "../stores/useLikesStore.js";
 export default {
   components: {
-      ProductCardComponent,
+    ProductCardComponent,
   },
   name: 'ProductPage',
   data() {
-      return {
-          msg: "ProductPage",
-          productPage: [],
-          demo: [1, 2, 3],
-      }
+    return {
+      msg: "ProductPage",
+      productPage: [],
+      demo: [1, 2, 3],
+    }
   },
   methods: {
-      async getProductPage(page, size) {
-          const backend = 'https://www.lonuashop.kro.kr/api';
-          // let backend = "http://localhost:8080";
-          await axios.get(backend + "/product/list/" + page + "/" + size).then((res) => {
-              console.log(res);
-              this.productPage = res.data.result;
+    async getProductPage(page, size) {
+      const backend = 'http://www.kty4563434.kro.kr/api';
+      // const backend = 'https://www.lonuashop.kro.kr/api';
+      // let backend = "http://localhost:8080";
+      await axios.get(backend + "/product/list/" + page + "/" + size).then((res) => {
+        console.log(res);
+        this.productPage = res.data.result;
 
-          }).catch((res) => {
-              console.log("망했다! : " + res);
-          });
+      }).catch((res) => {
+        console.log("망했다! : " + res);
+      });
 
-      },
+    },
 
 
-      async init() {
-          await this.getProductPage(1, 30);
-      }
+    async init() {
+      await this.getProductPage(1, 30);
+    }
 
   },
   mounted() {
-      console.log("mounted");
-      this.init();
-      this.likesStore.getLikeList();
+    console.log("mounted");
+    this.init();
+    this.likesStore.getLikeList();
 
-      // this.brandPage = this.brandPage.data.result;
-      // console.log(result);
+    // this.brandPage = this.brandPage.data.result;
+    // console.log(result);
 
   },
   computed: {
-      // 배열을 전달하지 않고, 스토어를 하나씩 전달합니다.
-      // 각 스토어는 ID 뒤에 'Store'를 붙여서 액세스할 수 있습니다.
-      // this.counterStore
-      ...mapStores(useLikesStore)
+    // 배열을 전달하지 않고, 스토어를 하나씩 전달합니다.
+    // 각 스토어는 ID 뒤에 'Store'를 붙여서 액세스할 수 있습니다.
+    // this.counterStore
+    ...mapStores(useLikesStore)
   },
 }
 </script>

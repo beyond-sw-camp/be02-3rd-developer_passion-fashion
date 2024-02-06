@@ -107,7 +107,7 @@
                           :key="idx"
                           class="dropdown-menu-list-item"
                         >
-                          <a class="dropdown-menu-list-item-link" href="/product">{{
+                          <a class="dropdown-menu-list-item-link" :href="'/product/category/'+idx">{{
                             category.categoryName
                           }}</a>
                         </li>
@@ -127,7 +127,7 @@
                           :key="idx"
                           class="dropdown-menu-list-item"
                         >
-                          <a class="dropdown-menu-list-item-link" href="/product">{{
+                          <a class="dropdown-menu-list-item-link" :href="'/product/style/'+idx">{{
                             style.styleName
                           }}</a>
                         </li>
@@ -137,7 +137,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a href="/product"> SAME BODY TYPE </a>
+                <a href="/product/type"> SAME BODY TYPE </a>
                 <div class="nav-item-dropdown">
                   <div class="dropdown-menu">
                     <div class="dropdown-menu-header">
@@ -147,7 +147,7 @@
                           :key="idx"
                           class="dropdown-menu-list-item"
                         >
-                          <a class="dropdown-menu-list-item-link" href="/product">
+                          <a class="dropdown-menu-list-item-link" href="/product/type">
                             {{ type.typeName }}
                           </a>
                         </li>

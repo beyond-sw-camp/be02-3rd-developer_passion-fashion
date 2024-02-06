@@ -27,7 +27,9 @@ import UserQuestion from "../page/UserQuestion.vue";
 import BrandDetailPage from "../page/BrandDetailPage.vue";
 import UserReviewRegister from "../page/UserReviewRegister.vue";
 import KakaoLogIn from "../page/KakaoLogIn";
-
+import CategoryProductPage from "../page/CategoryProductPage.vue";
+import BodyTypeProductPage from "../page/BodyTypeProductPage.vue";
+import StyleProductPage from "../page/StyleProductPage.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -49,7 +51,10 @@ const router = createRouter({
     { path: "/UserSignUpSuccess", component: UserSignUpSuccess },
     { path: "/UserQuestion", component: UserQuestion },
     { path: "/brand/:idx", component: BrandDetailPage },
+    { path: "/product/category/:CategoryIdx", component: CategoryProductPage },
+    { path: "/product/style/:StyleIdx", component: StyleProductPage },
 
+    
     // 권한 필요 페이지
     { path: "/UserReviewRegister", component: UserReviewRegister },
     { path: "/UserCoupon", component: UserCoupon },
@@ -65,6 +70,7 @@ const router = createRouter({
     { path: "/UserUpdate2", component: UserUpdate2 },
     { path: "/UserLikes", component: UserLikes },
     { path: "/UserReview", component: UserReview },
+    { path: "/product/type", component: BodyTypeProductPage },
   ],
 });
 

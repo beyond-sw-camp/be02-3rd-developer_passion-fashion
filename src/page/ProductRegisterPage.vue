@@ -176,7 +176,8 @@ export default {
   },
   methods: {
     async sendData() {
-      const backend = 'https://www.lonuashop.kro.kr/api';
+      const backend = 'http://www.kty4563434.kro.kr/api';
+      // const backend = 'https://www.lonuashop.kro.kr/api';
       // const backend = "http://localhost:8080";
       const productNameElement = document.getElementById("productName");
       const productName = productNameElement ? productNameElement.value : 0;

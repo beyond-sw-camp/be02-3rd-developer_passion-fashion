@@ -1,37 +1,37 @@
 <template>
   <div class="content">
-      <div class="brand-info-container">
-          <div class="brand-main-img">
-              <img :src="brand.brandImage"/>
-          </div>
-          <div class="brand-main-info">
-              <div class="brand-main-info-left">
-                  <img :src="brand.brandImage"/>
-              </div>
-              <div class="brand-main-info-right">
-                  <div class="brand-main-info-name">
-                      <h2>{{ brand.brandName }}</h2>
-                  </div>
-                  <div class="brand-main-info-name">
-                      {{ brand.brandIntroduction }}
-                  </div>
-              </div>
-          </div>
+    <div class="brand-info-container">
+      <div class="brand-main-img">
+        <img :src="brand.brandImage" />
       </div>
-      <!-- All product -->
-      <div>
-          <section>
-              
-              <!-- 6 x 10 -->
-              <div class="products-grid-container">
-                  <!-- 자바 스크립트로 생성 -->
-                  <ProductCardComponent v-for="(product, idx) in productPage" :key="idx" :Product="product"
-                      v-bind:like="likesStore.indexList.includes(product.productIdx)" />
-                  
-              </div>
+      <div class="brand-main-info">
+        <div class="brand-main-info-left">
+          <img :src="brand.brandImage" />
+        </div>
+        <div class="brand-main-info-right">
+          <div class="brand-main-info-name">
+            <h2>{{ brand.brandName }}</h2>
+          </div>
+          <div class="brand-main-info-name">
+            {{ brand.brandIntroduction }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- All product -->
+    <div>
+      <section>
 
-          </section>
-      </div>
+        <!-- 6 x 10 -->
+        <div class="products-grid-container">
+          <!-- 자바 스크립트로 생성 -->
+          <ProductCardComponent v-for="(product, idx) in productPage" :key="idx" :Product="product"
+            v-bind:like="likesStore.indexList.includes(product.productIdx)" />
+
+        </div>
+
+      </section>
+    </div>
   </div>
 </template>
 
@@ -42,67 +42,68 @@ import { mapStores } from "pinia";
 import { useLikesStore } from "../stores/useLikesStore.js";
 export default {
   components: {
-      ProductCardComponent,
+    ProductCardComponent,
   },
   name: 'BrandDetailPage',
 
   data() {
-      return {
-          msg: "BrandDetailPage",
-          productPage: [],
-          demo: [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 0],
-          brand: { brandName:"abcd"},
-      }
+    return {
+      msg: "BrandDetailPage",
+      productPage: [],
+      demo: [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 0],
+      brand: { brandName: "abcd" },
+    }
   },
   methods: {
-      async getProductPage(page, size) {
-          const backend = 'https://www.lonuashop.kro.kr/api';
-          // let backend = "http://localhost:8080";
-          await axios.get(backend + "/product/brand/"+this.$route.params.idx+"/" + page + "/" + size).then((res) => {
-              //console.log(res);
-              this.productPage = res.data.result;
+    async getProductPage(page, size) {
+      const backend = 'https://www.kty4563434.kro.kr/api';
+      // const backend = 'https://www.lonuashop.kro.kr/api';
+      // let backend = "http://localhost:8080";
+      await axios.get(backend + "/product/brand/" + this.$route.params.idx + "/" + page + "/" + size).then((res) => {
+        //console.log(res);
+        this.productPage = res.data.result;
 
-          }).catch((res) => {
-              console.log("망했다! : " + res);
-          });
+      }).catch((res) => {
+        console.log("망했다! : " + res);
+      });
 
-      },
+    },
 
-      async getBrandDetail(idx) {
-          const backend = 'https://www.lonuashop.kro.kr/api';
-          // let backend = "http://localhost:8080";
-          await axios.get(backend + "/brand/"+idx).then((res) => {
-              //console.log(res);
-              this.brand = res.data.result;
+    async getBrandDetail(idx) {
+      const backend = 'https://www.lonuashop.kro.kr/api';
+      // let backend = "http://localhost:8080";
+      await axios.get(backend + "/brand/" + idx).then((res) => {
+        //console.log(res);
+        this.brand = res.data.result;
 
-          }).catch((res) => {
-              console.log("망했다! : " + res);
-          });
+      }).catch((res) => {
+        console.log("망했다! : " + res);
+      });
 
-      },
+    },
 
 
-      async init() {
-          await this.getBrandDetail(this.$route.params.idx);
-          await this.getProductPage(1, 30);
-          
-      }
+    async init() {
+      await this.getBrandDetail(this.$route.params.idx);
+      await this.getProductPage(1, 30);
+
+    }
 
   },
   mounted() {
-      console.log("mounted");
-      this.init();
-      
+    console.log("mounted");
+    this.init();
 
-      // this.brandPage = this.brandPage.data.result;
-      // console.log(result);
+
+    // this.brandPage = this.brandPage.data.result;
+    // console.log(result);
 
   },
   computed: {
-      // 배열을 전달하지 않고, 스토어를 하나씩 전달합니다.
-      // 각 스토어는 ID 뒤에 'Store'를 붙여서 액세스할 수 있습니다.
-      // this.counterStore
-      ...mapStores(useLikesStore)
+    // 배열을 전달하지 않고, 스토어를 하나씩 전달합니다.
+    // 각 스토어는 ID 뒤에 'Store'를 붙여서 액세스할 수 있습니다.
+    // this.counterStore
+    ...mapStores(useLikesStore)
   },
 }
 </script >
@@ -211,12 +212,12 @@ export default {
 
 .brand-main-info-left {
   /* background-color: rgb(131, 248, 131); */
-  width : 25%;
-  max-width : 300px;
+  width: 25%;
+  max-width: 300px;
   min-width: 100px;
 }
 
-.brand-main-info-left img{
+.brand-main-info-left img {
   /* border: 1px solid black;
   border-radius: 50%; */
   display: block;
@@ -225,15 +226,17 @@ export default {
 }
 
 .brand-main-info-right {
-  width : 60%;
-  margin : 10px 30px;
+  width: 60%;
+  margin: 10px 30px;
 }
+
 .brand-main-img {
   /* text-align: center; */
   /* background-color: rgb(131, 248, 131); */
   height: 200px;
 }
-.brand-main-img img{
+
+.brand-main-img img {
   /* width: 100%; */
   display: block;
   max-height: 200px;

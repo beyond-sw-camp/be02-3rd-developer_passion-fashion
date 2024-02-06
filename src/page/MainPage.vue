@@ -128,9 +128,11 @@ export default {
       }
     },
     async getProductPage(page, size) {
+      const backend = 'http://www.kty4563434.kro.kr/api';
+      // const backend = 'https://www.lonuashop.kro.kr/api/product/list/';
       await axios
         .get(
-          "https://www.lonuashop.kro.kr/api/product/list/"+ page + "/" + size,
+          backend+"/product/list/"+ page + "/" + size,
           // "http://localhost:8080/product/list/" + page + "/" + size
         )
         .then((res) => {
