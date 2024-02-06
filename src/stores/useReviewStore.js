@@ -41,10 +41,7 @@ export const useReviewStore = defineStore("review", {
     async submitReview(review, reviewPhoto) {
       try {
         console.log("Current productIdx:", this.productIdx);
-        let formData = new FormData();
-        formData.append("productIdx", this.productIdx);
-        formData.append("reviewContent", review.reviewContent);
-        formData.append("evaluation", review.evaluation);
+              
 
         let data = {
           productIdx: this.productIdx,
@@ -52,7 +49,7 @@ export const useReviewStore = defineStore("review", {
           evaluation: review.evaluation,
         };
         let json = JSON.stringify(data);
-
+        let formData = new FormData();
         formData.append(
           "review",
           new Blob([json], { type: "application/json" })

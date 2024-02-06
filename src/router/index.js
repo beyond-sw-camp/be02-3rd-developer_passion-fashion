@@ -27,7 +27,9 @@ import UserQuestion from "../page/UserQuestion.vue";
 import BrandDetailPage from "../page/BrandDetailPage.vue";
 import UserReviewRegister from "../page/UserReviewRegister.vue";
 import KakaoLogIn from "../page/KakaoLogIn";
-import CategoryProductPage from "../page/CategoryProductPage";
+import CategoryProductPage from "../page/CategoryProductPage.vue";
+import BodyTypeProductPage from "../page/BodyTypeProductPage.vue";
+import StyleProductPage from "../page/StyleProductPage.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -39,11 +41,12 @@ const router = createRouter({
       component: () => import("../page/KakaoLogIn.vue"),
       props: true,
     },
+    { path: "/product/category/:CategoryIdx", component: CategoryProductPage },
+    { path: "/product/style/:StyleIdx", component: StyleProductPage },
     { path: "/KakaoLogIn", component: KakaoLogIn },
     { path: "/product", component: ProductPage },
     { path: "/brand", component: BrandPage },
     { path: "/productdetail/:idx", component: ProductDetail },
-    { path: "/product/:CategoryIdx", component: CategoryProductPage },
     { path: "/SellerSignUp", component: SellerSignUp },
     { path: "/UserLogIn", component: UserLogIn },
     { path: "/SellerLogIn", component: SellerLogIn },
@@ -53,6 +56,7 @@ const router = createRouter({
     { path: "/brand/:idx", component: BrandDetailPage },
 
     // 권한 필요 페이지
+    { path: "/product/type", component: BodyTypeProductPage },
     { path: "/UserReviewRegister", component: UserReviewRegister },
     { path: "/UserCoupon", component: UserCoupon },
     { path: "/UserMileage", component: UserMileage },
@@ -75,6 +79,7 @@ export default router;
 router.beforeEach((to, from, next) => {
   // 로그인이 필요한 페이지
   const authPages = [
+    "/product/type",
     "/UserReviewRegister",
     "/UserMileage",
     "/productregister",

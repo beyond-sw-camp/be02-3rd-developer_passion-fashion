@@ -30,11 +30,11 @@ export default {
     ...mapStores(useReviewStore),
   },
   methods: {
-    submitProductIdx() {
+    async submitProductIdx() {
       console.log(this.orders.productIdx);
       console.log("click");
       this.reviewStore.productIdx = this.orders.productIdx;
-      this.$router.push({ path: "/UserReviewRegister" });
+      await this.$router.push({ path: "/UserReviewRegister" });
     },
   },
 };

@@ -95,8 +95,8 @@ export default {
         this.reviewPhoto = file;
       }
     },
-    submitReview() {
-      this.reviewStore.submitReview(this.review, this.reviewPhoto);
+    async submitReview() {
+       await this.reviewStore.submitReview(this.review, this.reviewPhoto);
     },
   },
 };
