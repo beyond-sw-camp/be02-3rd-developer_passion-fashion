@@ -140,6 +140,12 @@
          <p><b>➡ 회원이 헤더에서 원하는 "스타일을 선택" 하여 스타일 별 상품 목록을 조회한다.</b></p><br>
          <p><img src="https://github.com/hyungdoyou/LONUA_Project/assets/148875644/6e006319-b193-4816-b7e6-2cdf2fbaa608"/></p>
          </details><br>
+                  	 <details>
+         <summary><b>상/하체 유형 상품 목록 조회</b></summary>
+                  <br>
+         <p><b>➡ 회원이 회원가입 시 입력한 상/하체 유형에 따라 본인과 동일한 회원들이 많이 구매한 상품 목록을 조회한다.</b></p><br>
+         <p><img src=""/></p>
+         </details><br>
 	 <details>
          <summary><b>상품에 대한 좋아요 기능</b></summary>
                   <br>
@@ -172,7 +178,7 @@
          <summary><b>전체 주문 내역 조회 및 리뷰 작성</b></summary>
                   <br>
          <p><b>➡ 회원이 주문한 상품의 전체 목록을 조회한다.</b></p><br>
-         <p><img src=""/></p>
+         <p><img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/148875644/392e92a5-efef-4b47-9728-c619c1b289ed"/></p>
          </details><br>
 	 <details>
          <summary><b>등록한 리뷰 조회 및 삭제</b></summary>
