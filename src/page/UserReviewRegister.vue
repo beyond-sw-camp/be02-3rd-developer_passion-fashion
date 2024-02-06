@@ -54,7 +54,7 @@
               <img v-if="imagePreview" :src="imagePreview" alt="Preview" />
             </div>
 
-            <button type="button1" @click="submitReview()">
+            <button type="button1" @click.stop.prevent="submitReview()">
               리뷰 작성하기
             </button>
           </form>

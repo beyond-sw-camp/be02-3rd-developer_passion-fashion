@@ -4,7 +4,9 @@
   <td class="product" :id="orders.productIdx">
     <div class="item_aside">
       <div class="img">
+        <a :href="'/productdetail/' + orders.productIdx">
         <img :src="orders.productImage" />
+      </a>
       </div>
     </div>
     <div class="item_info">

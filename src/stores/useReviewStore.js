@@ -39,43 +39,35 @@ export const useReviewStore = defineStore("review", {
       }
     },
     async submitReview(review, reviewPhoto) {
-      try {
-        console.log("Current productIdx:", this.productIdx);
-              
-
+      try{
+      let formData = new FormData();
         let data = {
-          productIdx: this.productIdx,
+          productIdx: this.productIdx, //2
           reviewContent: review.reviewContent,
           evaluation: review.evaluation,
         };
         let json = JSON.stringify(data);
-        let formData = new FormData();
         formData.append(
           "review",
           new Blob([json], { type: "application/json" })
         );
-
         formData.append("reviewPhoto", reviewPhoto);
-
-        const response = await axios.post(
-          backend + "/review/register",
-          formData,
-          {
-            headers: {
-              Authorization: `Bearer ${storedToken}`,
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
-        console.log(response);
-        if(response.data.isSuccess === true) {
-          console.log(response.data.isSuccess)
-          alert("리뷰가 작성되었습니다.")
+        let response = await axios.post(
+            "https://www.lonuashop.kro.kr/api/review/register",
+            formData,
+            {
+              headers: {
+                Authorization: `Bearer ${storedToken}`,
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          );
+        if(response.data.isSuccess === true){
+          alert("리뷰작성이 완료됐습니다.");
           window.location.href = "/UserReview";
         }
       } catch (error) {
-        this.isSuccess = false;
-        console.error("Error submitting review:", error);
+        console.error(error);
       }
     },
     async deleteReview(reviewIdx) {

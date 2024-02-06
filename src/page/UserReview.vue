@@ -13,16 +13,10 @@
     <MyPageComponent />
     <div class="mypage">
       <div class="mb40">
-        <a
-          href="/BenefitInfo?memberBenefit=4"
-          target="_self"
-          class="center-block"
-        >
           <img
             src="//image.wconcept.co.kr/images/builder/1/4/138/426/pc_1240x100_20221212095117_20230926164822_20240131153054.jpg"
             alt="24.02 친구초대"
           />
-        </a>
       </div>
       <div class="table_title contents">
         <h3>리뷰</h3>

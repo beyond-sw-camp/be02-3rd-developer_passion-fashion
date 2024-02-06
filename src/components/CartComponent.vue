@@ -274,9 +274,11 @@ export default {
         if (!this.cartStore.productIdxList.includes(this.cart.productIdx)) {
           this.cartStore.productIdxList.push(this.cart.productIdx);
           this.cartStore.ordersCartIdxList.push(this.cart.cartIdx);
+          this.cartStore.productNameList.push(this.cart.productName);
         }
-        console.log(this.cartStore.productIdxList);
-        console.log(this.cartStore.ordersCartIdxList);
+        // console.log(this.cartStore.productIdxList);
+        // console.log(this.cartStore.ordersCartIdxList);
+        // console.log(this.cartStore.productNameList);
 
         this.cartStore.updateTotalPrice(
           this.cartStore.totalPrice + this.cart.salePrice
@@ -291,13 +293,19 @@ export default {
           this.cart.cartIdx
         );
 
+        const indexPrdocutNameRemove = this.cartStore.productNameList.indexOf(
+          this.cart.productName
+        );
+
         if (indexToRemove !== -1) {
           this.cartStore.productIdxList.splice(indexToRemove, 1);
           this.cartStore.ordersCartIdxList.splice(indexToCartRemove, 1);
+          this.cartStore.productNameList.splice(indexPrdocutNameRemove, 1);
         }
 
-        console.log(this.cartStore.productIdxList);
-        console.log(this.cartStore.ordersCartIdxList);
+        // console.log(this.cartStore.productIdxList);
+        // console.log(this.cartStore.ordersCartIdxList);
+        // console.log(this.cartStore.productNameList);
         this.cartStore.updateTotalPrice(
           this.cartStore.totalPrice - this.cart.salePrice
         );

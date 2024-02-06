@@ -20,6 +20,8 @@ export const useCartStore = defineStore("cart", {
     productCouponMap: {},
     isCartExist: true,
     isLoading: false,
+    productNameList: [],
+    ordersProductName: ""
   }),
   actions: {
     updateTotalPrice(updatePrice) {
@@ -41,15 +43,17 @@ export const useCartStore = defineStore("cart", {
       }
 
       this.productIdxList = this.cartList.map((cart) => cart.productIdx);
+      this.productNameList = this.cartList.map((cart) => cart.productName);
       this.ordersCartIdxList = this.cartList.map((cart) => cart.cartIdx);
       this.cartList.forEach((cart) => {
         const productIdx = cart.productIdx;
         this.productCouponMap[productIdx] = 0;
       });
 
-      console.log(this.productCouponMap);
-      console.log(this.productIdxList);
-      console.log(this.ordersCartIdxList);
+      // console.log(this.productCouponMap);
+      // console.log(this.productIdxList);
+      // console.log(this.ordersCartIdxList);
+      // console.log(this.productNameList);
 
       this.calculateTotal();
     },
@@ -120,10 +124,15 @@ export const useCartStore = defineStore("cart", {
     },
 
     submitOrder() {
+      console.log(this.totalPoint);
       this.isLoading = true;
-
-      let productName = "주문" + this.orderCount;
-      this.orderCount += 1;
+      
+      if(this.productNameList.length > 1) {
+        console.log(this.productNameList.length)
+        this.ordersProductName = this.productNameList[0] + " 등 " + this.productNameList.length + "건";
+      } else {
+        this.ordersProductName = this.productNameList[0];
+      }
 
       // 아임포트 초기화
       const IMP = window.IMP;
@@ -139,13 +148,13 @@ export const useCartStore = defineStore("cart", {
         amount: this.totalPrice,
         impUid: "",
         merchantUid: this.createOrderNum(),
-        productName: productName,
+        productName: this.ordersProductName,
         payMethod: "kakoPay",
         productIdxList: this.productIdxList,
         couponIdxList: this.couponIdxList,
         productCouponMap: this.productCouponMap,
         ordersCartIdxList: this.ordersCartIdxList,
-        mileage: this.totalPoint,
+        mileage: parseInt(this.totalPoint),
       };
 
       // 아임포트 결제 요청
