@@ -5,27 +5,17 @@
     </div>
 
     <div class="men-category-title-image-container">
-      <div
-        class="title-image"
-        style="
+      <div class="title-image" style="
           background-image: url('https://wimage.wconcept.co.kr/msa/display/20230904105951146_5001.jpg?RS=600');
-        "
-      >
-        <span
-          >WEDNESDAY OASIS <br />
-          24SS COLLECTION</span
-        >
+        ">
+        <span>WEDNESDAY OASIS <br />
+          24SS COLLECTION</span>
       </div>
-      <div
-        class="title-image"
-        style="
+      <div class="title-image" style="
           background-image: url('https://wimage.wconcept.co.kr/msa/display/20230904105627543_2741.jpg?RS=600');
-        "
-      >
-        <span
-          >Millo Archive <br />
-          24SS COLLECTION</span
-        >
+        ">
+        <span>Millo Archive <br />
+          24SS COLLECTION</span>
       </div>
     </div>
 
@@ -33,26 +23,35 @@
       <span>TRENDING NOW</span>
     </div>
 
-    <div class="splide_contoner">
+    <div v-if="width <1200" class="splide_contoner">
       <!-- trending-now product -->
-      <Splide
-        :options="{
-          type: 'loop',
-          // width: &quot;auto&quot;,
-          pagination: false,
-          // gap: &quot;20px&quot;,
-          perPage: 3,
-        }"
-        aria-label="My Favorite Images"
-      >
+      <Splide :options="{
+        type: 'loop',
+        // width: &quot;auto&quot;,
+        pagination: false,
+        // gap: &quot;20px&quot;,
+        perPage: 3,
+      }" aria-label="My Favorite Images">
         <SplideSlide v-for="res in products" :key="res.productIdx">
-          <ProductCardComponent
-            v-bind:Product="res"
-            v-bind:like="likesStore.indexList.includes(res.productIdx)"
-          />
+          <ProductCardComponent v-bind:Product="res" v-bind:like="likesStore.indexList.includes(res.productIdx)" />
         </SplideSlide>
       </Splide>
     </div>
+    <div v-else class="splide_contoner">
+      <!-- trending-now product -->
+      <Splide :options="{
+        type: 'loop',
+        // width: &quot;auto&quot;,
+        pagination: false,
+        // gap: &quot;20px&quot;,
+        perPage: 5,
+      }" aria-label="My Favorite Images">
+        <SplideSlide v-for="res in products" :key="res.productIdx">
+          <ProductCardComponent v-bind:Product="res" v-bind:like="likesStore.indexList.includes(res.productIdx)" />
+        </SplideSlide>
+      </Splide>
+    </div>
+
   </div>
 </template>
 
@@ -118,9 +117,17 @@ export default {
           likeState: false,
         },
       ],
+      width: "0",
+      height: "0",
     };
   },
   methods: {
+    handleResize(event) {
+      console.log(event);
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+    },
+
     clickedBtn(trendIdx) {
       if (trendIdx == 1) {
         this.result.productImage =
@@ -130,7 +137,7 @@ export default {
     async getProductPage(page, size) {
       await axios
         .get(
-          "https://www.lonuashop.kro.kr/api/product/list/"+ page + "/" + size,
+          "https://www.lonuashop.kro.kr/api/product/list/" + page + "/" + size,
           // "http://localhost:8080/product/list/" + page + "/" + size
         )
         .then((res) => {
@@ -148,6 +155,7 @@ export default {
   mounted() {
     this.likesStore.getMainLikeList();
     this.getProductPage(1, 15);
+    window.addEventListener('resize', this.handleResize);
   },
   computed: {
     // 배열을 전달하지 않고, 스토어를 하나씩 전달합니다.
@@ -184,7 +192,7 @@ button {
   position: absolute;
 }
 
-.dropdown-trigger:hover > .category-nav-list-menu-dropdown {
+.dropdown-trigger:hover>.category-nav-list-menu-dropdown {
   display: flex;
   flex-direction: column;
   list-style-type: none;
@@ -203,7 +211,7 @@ button {
   font-size: 44px;
 }
 
-.category-title > h2 {
+.category-title>h2 {
   text-align: center;
   font-weight: 100;
 }
@@ -226,7 +234,7 @@ button {
   text-align: center;
 }
 
-.title-image > span {
+.title-image>span {
   position: relative;
   top: 50%;
   color: white;
@@ -291,6 +299,7 @@ button {
 .trending-now-content-btn.active {
   color: black;
 }
+
 .md-pick-title {
   text-align: center;
   font-size: 38px;
@@ -357,8 +366,7 @@ button {
   flex-direction: row;
 }
 
-.products-grid-item-info-brand {
-}
+.products-grid-item-info-brand {}
 
 .products-grid-item-info-name {
   text-align: left;
@@ -411,9 +419,7 @@ button {
   font-weight: 300;
 }
 
-.splide_contoner{
+.splide_contoner {
   height: 120%;
 }
-
-/* 우선순위 .css */
 </style>

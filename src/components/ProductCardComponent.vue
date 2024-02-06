@@ -22,12 +22,12 @@
         <div v-text="Product.productName" class="productName"></div>
 
         <div class="productCardInfoBottom">
-          <div v-text="Product.price" class="priceBefore"></div>
+          <div v-text="price.toLocaleString()" class="priceBefore"></div>
           <div class="salePrice">
             <span class="discount">{{
-              (100 - (Product.salePrice / Product.price) * 100).toFixed(2) + "%"
+              (100 - (Product.salePrice / Product.price) * 100).toFixed(0) + "%"
             }}</span>
-            <div v-text="Product.salePrice" class="priceAfter"></div>
+            <div v-text="salePrice.toLocaleString()" class="priceAfter"></div>
           </div>
         </div>
       </a>
@@ -41,7 +41,10 @@ import { useLikesStore } from "../stores/useLikesStore.js";
 export default {
   name: "ProductCardComponent",
   data() {
-    return {};
+    return {
+      price : "0",
+      salePrice: "0",
+    };
   },
   props: ["Product", "like"],
   methods: {
@@ -79,7 +82,11 @@ export default {
     // this.counterStore
     ...mapStores(useLikesStore),
   },
-  mounted() {},
+  mounted() {
+    //this.Product.salePrice = this.Product.salePrice.toLocalString();
+    this.salePrice = this.Product.salePrice;
+    this.price = this.Product.price;
+  },
 };
 </script>
 

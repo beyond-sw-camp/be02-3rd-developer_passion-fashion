@@ -1,4 +1,20 @@
 <template>
+    <div class="loadingio-spinner-spinner" v-if="productStore.isLoading">
+    <div class="ldio-f4nnk2ltl0v">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
   <div id="productIdx"></div>
   <section id="container">
     <div class="pdt">
@@ -7,16 +23,22 @@
           <div class="left_col">
             <div class="img_goods">
               <div class="img_area">
-                <Splide :options='{
-                  type: "loop",
-                  width: "100%",
-                  perPage: 1,
-                }' aria-label="My Favorite Images">
+                <Splide
+                  :options="{
+                    type: 'loop',
+                    width: '100%',
+                    perPage: 1,
+                  }"
+                  aria-label="My Favorite Images"
+                >
                   <!-- <SplideSlide v-for="res in result" :key="res.productIdx">
                   <ProductCardComponent v-bind:Product="res" v-bind:like="likesStore.indexList.includes(res.productIdx)"/>
               </SplideSlide> -->
-                  <SplideSlide v-for="(image, index) in productStore.product.productImages" :key="index">
-                      <img width="500" height="700" :src="image" />
+                  <SplideSlide
+                    v-for="(image, index) in productStore.product.productImages"
+                    :key="index"
+                  >
+                    <img :width="imgWidth" height="700" :src="image"  />
                   </SplideSlide>
                 </Splide>
               </div>
@@ -53,21 +75,30 @@
                 </dd>
                 <dt class="sale">할인적용가</dt>
                 <dd class="sale">
-                  <em>{{ formattedSalePrice }}</em><text>원</text>
-                  <span class="discount_percent">{{
-                    (
-                      (1 -
-                        productStore.product.salePrice /
-                        productStore.product.price) *
-                      100
-                    ).toFixed(0)
-                  }}%</span>
+                  <em>{{ formattedSalePrice }}</em
+                  ><text>원</text>
+                  <span class="discount_percent"
+                    >{{
+                      (
+                        (1 -
+                          productStore.product.salePrice /
+                            productStore.product.price) *
+                        100
+                      ).toFixed(0)
+                    }}%</span
+                  >
                 </dd>
               </dl>
             </div>
             <ul class="btn_group">
               <li>
-                <button type="button" data-origin-place="top" class="btn black" name="maincart" @click="openModal">
+                <button
+                  type="button"
+                  data-origin-place="top"
+                  class="btn black"
+                  name="maincart"
+                  @click="openModal"
+                >
                   쇼핑백담기
                 </button>
                 <ModalComponent ref="cartModal"></ModalComponent>
@@ -114,8 +145,12 @@
         <li><a href="#delivery">RETURN &amp; DELIVERY</a></li>
       </ul>
       <div class="pdt_contents detail">
-        <div class="marketing" v-for="(introimage, index) in productStore.product
-          .productIntrodImages" :key="index">
+        <div
+          class="marketing"
+          v-for="(introimage, index) in productStore.product
+            .productIntrodImages"
+          :key="index"
+        >
           <!--제품 상세페이지 이미지 띄우는곳-->
           <img :src="introimage" /> <br />
         </div>
@@ -124,9 +159,8 @@
           등록된 정보에 대한 책임은 판매자에게 있습니다.
         </p>
       </div>
-    </div>
-    <!-- tab -->
-    <ul id="review" class="tab tab_item4">
+
+      <ul id="review" class="tab tab_item4">
       <li><a href="#detail">DETAIL</a></li>
       <li class="active"><a href="#review">REVIEW </a></li>
       <li><a href="#qa">Q&amp;A</a></li>
@@ -141,12 +175,23 @@
             <col style="width: auto" />
           </colgroup>
           <thead>
-            <tr>
+            <tr v-if="reviewStore.reviews && reviewStore.reviews.length > 0">
               <th>평가</th>
               <th>리뷰</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody
+            v-if="!reviewStore.reviews || reviewStore.reviews.length === 0"
+          >
+            <tr>
+              <td colspan="2" class="no_data">
+                첫 리뷰어가 되어 보세요!<br />추가 <span>포인트</span> 적립해
+                드려요.
+                <a href="/UserOrders">리뷰 작성하러 가기</a>
+              </td>
+            </tr>
+          </tbody>
+          <tbody v-if="reviewStore.reviews && reviewStore.reviews.length > 0">
             <tr v-for="(review, index) in reviewStore.reviews" :key="index">
               <td>
                 <div class="pdt_review_align_wrap">
@@ -154,16 +199,16 @@
                     <div class="star-grade">
                       {{
                         review.evaluation === 1
-                        ? "★"
-                        : review.evaluation === 2
+                          ? "★"
+                          : review.evaluation === 2
                           ? "★★"
                           : review.evaluation === 3
-                            ? "★★★"
-                            : review.evaluation === 4
-                              ? "★★★★"
-                              : review.evaluation === 5
-                                ? "★★★★★"
-                                : ""
+                          ? "★★★"
+                          : review.evaluation === 4
+                          ? "★★★★"
+                          : review.evaluation === 5
+                          ? "★★★★★"
+                          : ""
                       }}
                     </div>
                   </div>
@@ -212,20 +257,32 @@
     </ul>
     <!-- //tab -->
     <div class="pdt_contents qna">
-      <div class="fr">
+      <div class="fr" style="text-align: right">
         <button type="button" class="btn black" @click="openQaModal">
           상품문의
         </button>
-        <productQaRegisterModal ref="qaModal"></productQaRegisterModal>
       </div>
+      <productQaRegisterModal ref="qaModal"></productQaRegisterModal>
+      
       <table class="cols tbl_qna my-qna">
         <colgroup>
           <col style="width: 98px" />
           <col />
           <col style="width: 115px" />
         </colgroup>
+        <tbody v-if="!qnaStore.productQnas || qnaStore.productQnas.length === 0">
+          <tr>
+            <td colspan="3" class="no_data">
+              상품문의가 없습니다.<br />
+              <span>질문</span>은 언제나 환영!
+            </td>
+          </tr>
+        </tbody>
         <tbody>
-          <template v-for="(productQna, index) in qnaStore.productQnas" :key="index">
+          <template
+            v-for="(productQna, index) in qnaStore.productQnas"
+            :key="index"
+          >
             <tr class="">
               <td>
                 <em class="icon_finish">{{
@@ -234,7 +291,7 @@
               </td>
               <td class="question">
                 <p class="tit">
-                  <a @click="qnaDetailtoggle(index)" style="cursor: pointer;">
+                  <a @click="qnaDetailtoggle(index)" style="cursor: pointer">
                     {{ productQna.questionTitle }}
                   </a>
                 </p>
@@ -302,12 +359,12 @@
                   달라집니다.
                 </li>
                 <li>
-                  일부 주문상품 또는 예약상품의 경우 기본 배송일 외에 추가
-                  배송 소요일이 발생될 수 있습니다.
+                  일부 주문상품 또는 예약상품의 경우 기본 배송일 외에 추가 배송
+                  소요일이 발생될 수 있습니다.
                 </li>
                 <li>
-                  동일 브랜드의 상품이라도 상품별 출고일시가 달라 각각 배송될
-                  수 있습니다.
+                  동일 브랜드의 상품이라도 상품별 출고일시가 달라 각각 배송될 수
+                  있습니다.
                 </li>
                 <li>
                   제주 및 도서산간 지역은 출고, 반품, 교환시 추가 배송비(항공,
@@ -334,27 +391,26 @@
                   &#xBB3C;&#xB958;&#xC13C;&#xD130;
                 </li>
                 <li>
-                  동일 브랜드의 상품이라도 교환/반품 회수지가 다를 수
-                  있습니다. 상품상세 정보 또는 회수지 정보를 확인하신 후
-                  반드시 지정된 회수지로 보내주세요.
+                  동일 브랜드의 상품이라도 교환/반품 회수지가 다를 수 있습니다.
+                  상품상세 정보 또는 회수지 정보를 확인하신 후 반드시 지정된
+                  회수지로 보내주세요.
                 </li>
                 <li>
                   상품을 지정된 회수지가 아닌곳으로 보내실 경우 택배 분실 또는
                   재발송에 따른 추가 비용이 발생할 수 있습니다.
                 </li>
                 <li>
-                  고객센터나 "My Page>주문취소/교환/반품 신청"을 통한
-                  교환/반품 접수 없이 상품을 회수지로 보내실 경우 재발송에
-                  따른 추가 비용이 발생할 수 있으며 경우에 따라서는
-                  교환/반품이 어려울 수 있습니다.
+                  고객센터나 "My Page>주문취소/교환/반품 신청"을 통한 교환/반품
+                  접수 없이 상품을 회수지로 보내실 경우 재발송에 따른 추가
+                  비용이 발생할 수 있으며 경우에 따라서는 교환/반품이 어려울 수
+                  있습니다.
                 </li>
                 <!--  [ITDEV-4073]교환 반품 회수지정보    // -->
                 <li class="bold">
                   상품하자 이외 사이즈, 색상교환 등 단순 변심에 의한 교환/반품
                   택배비 고객부담으로 왕복택배비가 발생합니다. (전자상거래
-                  등에서의 소비자보호에 관한 법률 제18조(청약 철회등)9항에
-                  의거 소비자의 사정에 의한 청약 철회 시 택배비는 소비자
-                  부담입니다.)
+                  등에서의 소비자보호에 관한 법률 제18조(청약 철회등)9항에 의거
+                  소비자의 사정에 의한 청약 철회 시 택배비는 소비자 부담입니다.)
                 </li>
                 <li>
                   결제완료 직후 즉시 주문취소는 "MY Page> 취소/교환/반품
@@ -365,13 +421,13 @@
                   있는 점 양해 부탁드립니다.
                 </li>
                 <li>
-                  주문상태가 상품준비중인 경우 취소신청이 가능하며 판매자의
-                  승인 여부(이미 배송을 했거나 포장을 완료한 경우)에 따라
-                  취소가 불가능할 수 있습니다.
+                  주문상태가 상품준비중인 경우 취소신청이 가능하며 판매자의 승인
+                  여부(이미 배송을 했거나 포장을 완료한 경우)에 따라 취소가
+                  불가능할 수 있습니다.
                 </li>
                 <li>
-                  교환 신청은 최초 1회에 한하며, 교환 배송 완료 후에는 추가
-                  교환 신청은 불가합니다.
+                  교환 신청은 최초 1회에 한하며, 교환 배송 완료 후에는 추가 교환
+                  신청은 불가합니다.
                 </li>
                 <li>
                   반품/교환은 미사용 제품에 한해 배송완료 후 7일 이내 접수하여
@@ -379,8 +435,7 @@
                 </li>
                 <li>
                   임의반품은 불가하오니 반드시 고객센터나 "MY Page>
-                  주문취소/교환/반품 신청"을 통해서 신청접수를 하시기
-                  바랍니다.
+                  주문취소/교환/반품 신청"을 통해서 신청접수를 하시기 바랍니다.
                 </li>
                 <li>
                   상품하자, 오배송의 경우 택배비 무료로 교환/반품이 가능하지만
@@ -394,8 +449,8 @@
                   합니다.
                 </li>
                 <li>
-                  취소/반품 대금환불이 지연 시 전자상거래법에 의거하여
-                  환불지연 배상처리 절차가 진행됩니다.
+                  취소/반품 대금환불이 지연 시 전자상거래법에 의거하여 환불지연
+                  배상처리 절차가 진행됩니다.
                 </li>
               </ul>
             </td>
@@ -409,12 +464,11 @@
                   상품 부자재가 제거 혹은 분실된 경우
                 </li>
                 <li>
-                  밀봉포장을 개봉했거나 내부 포장재를 훼손 또는 분실한
-                  경우(단, 제품확인을 위한 개봉 제외)
+                  밀봉포장을 개봉했거나 내부 포장재를 훼손 또는 분실한 경우(단,
+                  제품확인을 위한 개봉 제외)
                 </li>
                 <li>
-                  시간이 경과되어 재판매가 어려울 정도로 상품가치가 상실된
-                  경우
+                  시간이 경과되어 재판매가 어려울 정도로 상품가치가 상실된 경우
                 </li>
                 <li>
                   고객님의 요청에 따라 주문 제작되어 고객님 외에 사용이 어려운
@@ -447,7 +501,9 @@
         </tbody>
       </table>
     </div>
-
+    </div>
+    <!-- tab -->
+    
   </section>
 </template>
 
@@ -458,13 +514,14 @@ import { useReviewStore } from "@/stores/useReviewStore.js";
 import { useQnaStore } from "@/stores/useQnaStore.js";
 import ModalComponent from "@/components/ModalComponent.vue";
 import productQaRegisterModal from "@/components/ProductQaRegisterModal.vue";
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
-import '@splidejs/vue-splide/css';
+import { Splide, SplideSlide } from "@splidejs/vue-splide";
+import "@splidejs/vue-splide/css";
 export default {
   name: "ProductDetailPage",
   data() {
     return {
       qnaDetail: false,
+      imgWidth: "0",
     };
   },
   components: {
@@ -514,10 +571,47 @@ export default {
     this.productStore.getProduct(this.$route.params.idx);
     this.reviewStore.getReview(this.$route.params.idx);
   },
+  mounted() {
+    this.imgWidth = "500";
+    this.productStore.isLoading = false;
+    
+  }
 };
 </script>
 
 <style scoped>
+.pdt_contents.qna .cols.tbl_qna.my-qna .no_data span {
+  color: #fa5500;
+}
+.pdt_contents.qna .cols.tbl_qna.my-qna .no_data {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  text-align: center;
+  color: #333;
+  padding: 80px 0;
+}
+.pdt_contents.pdt_review .pdt_review_table td.no_data a {
+  display: block;
+  width: 198px;
+  font-size: 14px;
+  line-height: 40px;
+  color: #fff;
+  background: #777;
+  margin: 20px auto 0;
+}
+.pdt_contents.pdt_review .pdt_review_table td.no_data span {
+  color: #fa5500;
+}
+.pdt_contents.pdt_review .pdt_review_table td.no_data {
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.4px;
+  text-align: center;
+  color: #333;
+  padding: 80px 0;
+}
+
 /** 리뷰 css start */
 .pdt_contents.pdt_review .pdt_review_info p * {
   display: inline-block;
@@ -650,7 +744,8 @@ table {
   display: inline-block;
   overflow: hidden;
   height: 18px;
-  background: url(//static.wconcept.co.kr/web/images/common/spr-mypage.png) 0 0 no-repeat;
+  background: url(//static.wconcept.co.kr/web/images/common/spr-mypage.png) 0 0
+    no-repeat;
   line-height: 99em;
   vertical-align: top;
 }
@@ -1180,7 +1275,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Thin";
   src: url("fonts/proximanova/proximanova-thin-webfont.eot");
-  src: url("fonts/proximanova/proximanova-thin-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-thin-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-thin-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-thin-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-thin-webfont.ttf") format("truetype"),
@@ -1192,7 +1288,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Thin_italic";
   src: url("fonts/proximanova/proximanova-thinit-webfont.eot");
-  src: url("fonts/proximanova/proximanova-thinit-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-thinit-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-thinit-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-thinit-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-thinit-webfont.ttf") format("truetype"),
@@ -1204,7 +1301,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Light";
   src: url("fonts/proximanova/proximanova-light-webfont.eot");
-  src: url("fonts/proximanova/proximanova-light-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-light-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-light-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-light-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-light-webfont.ttf") format("truetype"),
@@ -1216,7 +1314,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Light_italic";
   src: url("fonts/proximanova/proximanova-lightit-webfont.eot");
-  src: url("fonts/proximanova/proximanova-lightit-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-lightit-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-lightit-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-lightit-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-lightit-webfont.ttf") format("truetype"),
@@ -1228,7 +1327,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Regular";
   src: url("fonts/proximanova/proximanova-regular-webfont.eot");
-  src: url("fonts/proximanova/proximanova-regular-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-regular-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-regular-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-regular-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-regular-webfont.ttf") format("truetype"),
@@ -1240,10 +1340,12 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova_italic";
   src: url("fonts/proximanova/proximanova-regularit-webfont.eot");
-  src: url("fonts/proximanova/proximanova-regularit-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-regularit-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-regularit-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-regularit-webfont.woff") format("woff"),
-    url("fonts/proximanova/proximanova-regularit-webfont.ttf") format("truetype"),
+    url("fonts/proximanova/proximanova-regularit-webfont.ttf")
+      format("truetype"),
     url("fonts/proximanova/proximanova-regularit-webfont.svg") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -1252,7 +1354,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Medium";
   src: url("fonts/proximanova/proximanova-medium-webfont.eot");
-  src: url("fonts/proximanova/proximanova-medium-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-medium-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-medium-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-medium-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-medium-webfont.ttf") format("truetype"),
@@ -1264,7 +1367,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Medium_italic";
   src: url("fonts/proximanova/proximanova-mediumit-webfont.eot");
-  src: url("fonts/proximanova/proximanova-mediumit-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-mediumit-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-mediumit-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-mediumit-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-mediumit-webfont.ttf") format("truetype"),
@@ -1276,7 +1380,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Semibold";
   src: url("fonts/proximanova/proximanova-semibold-webfont.eot");
-  src: url("fonts/proximanova/proximanova-semibold-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-semibold-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-semibold-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-semibold-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-semibold-webfont.ttf") format("truetype"),
@@ -1288,10 +1393,13 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Semibold_italic";
   src: url("fonts/proximanova/proximanova-semiboldit-webfont.eot");
-  src: url("fonts/proximanova/proximanova-semiboldit-webfont.eot") format("embedded-opentype"),
-    url("fonts/proximanova/proximanova-semiboldit-webfont.woff2") format("woff2"),
+  src: url("fonts/proximanova/proximanova-semiboldit-webfont.eot")
+      format("embedded-opentype"),
+    url("fonts/proximanova/proximanova-semiboldit-webfont.woff2")
+      format("woff2"),
     url("fonts/proximanova/proximanova-semiboldit-webfont.woff") format("woff"),
-    url("fonts/proximanova/proximanova-semiboldit-webfont.ttf") format("truetype"),
+    url("fonts/proximanova/proximanova-semiboldit-webfont.ttf")
+      format("truetype"),
     url("fonts/proximanova/proximanova-semiboldit-webfont.svg") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -1300,7 +1408,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Bold";
   src: url("fonts/proximanova/proximanova-bold-webfont.eot");
-  src: url("fonts/proximanova/proximanova-bold-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-bold-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-bold-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-bold-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-bold-webfont.ttf") format("truetype"),
@@ -1312,7 +1421,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Bold_italic";
   src: url("fonts/proximanova/proximanova-boldit-webfont.eot");
-  src: url("fonts/proximanova/proximanova-boldit-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-boldit-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-boldit-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-boldit-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-boldit-webfont.ttf") format("truetype"),
@@ -1324,10 +1434,12 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Extrabld";
   src: url("fonts/proximanova/proximanova-extrabold-webfont.eot");
-  src: url("fonts/proximanova/proximanova-extrabold-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-extrabold-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-extrabold-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-extrabold-webfont.woff") format("woff"),
-    url("fonts/proximanova/proximanova-extrabold-webfont.ttf") format("truetype"),
+    url("fonts/proximanova/proximanova-extrabold-webfont.ttf")
+      format("truetype"),
     url("fonts/proximanova/proximanova-extrabold-webfont.svg") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -1336,10 +1448,13 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Extrabld_italic";
   src: url("fonts/proximanova/proximanova-extraboldit-webfont.eot");
-  src: url("fonts/proximanova/proximanova-extraboldit-webfont.eot") format("embedded-opentype"),
-    url("fonts/proximanova/proximanova-extraboldit-webfont.woff2") format("woff2"),
+  src: url("fonts/proximanova/proximanova-extraboldit-webfont.eot")
+      format("embedded-opentype"),
+    url("fonts/proximanova/proximanova-extraboldit-webfont.woff2")
+      format("woff2"),
     url("fonts/proximanova/proximanova-extraboldit-webfont.woff") format("woff"),
-    url("fonts/proximanova/proximanova-extraboldit-webfont.ttf") format("truetype"),
+    url("fonts/proximanova/proximanova-extraboldit-webfont.ttf")
+      format("truetype"),
     url("fonts/proximanova/proximanova-extraboldit-webfont.svg") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -1348,7 +1463,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Black";
   src: url("fonts/proximanova/proximanova-black-webfont.eot");
-  src: url("fonts/proximanova/proximanova-black-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-black-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-black-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-black-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-black-webfont.ttf") format("truetype"),
@@ -1360,7 +1476,8 @@ textarea::-moz-input-placeholder {
 @font-face {
   font-family: "ProximaNova-Black_italic";
   src: url("fonts/proximanova/proximanova-blackit-webfont.eot");
-  src: url("fonts/proximanova/proximanova-blackit-webfont.eot") format("embedded-opentype"),
+  src: url("fonts/proximanova/proximanova-blackit-webfont.eot")
+      format("embedded-opentype"),
     url("fonts/proximanova/proximanova-blackit-webfont.woff2") format("woff2"),
     url("fonts/proximanova/proximanova-blackit-webfont.woff") format("woff"),
     url("fonts/proximanova/proximanova-blackit-webfont.ttf") format("truetype"),
@@ -1410,9 +1527,12 @@ textarea::-moz-input-placeholder {
   font-style: normal;
   font-weight: normal;
   src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-regular.eot");
-  src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-regular.eot") format("embedded-opentype"),
-    url("fonts/notoserifkr/noto-serif-kr-v15-korean-regular.woff2") format("woff2"),
-    url("fonts/notoserifkr/noto-serif-kr-v15-korean-regular.woff") format("woff"),
+  src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-regular.eot")
+      format("embedded-opentype"),
+    url("fonts/notoserifkr/noto-serif-kr-v15-korean-regular.woff2")
+      format("woff2"),
+    url("fonts/notoserifkr/noto-serif-kr-v15-korean-regular.woff")
+      format("woff"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-regular.svg") format("svg");
 }
 
@@ -1421,7 +1541,8 @@ textarea::-moz-input-placeholder {
   font-weight: 500;
   font-style: normal;
   src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-500.eot");
-  src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-500.eot") format("embedded-opentype"),
+  src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-500.eot")
+      format("embedded-opentype"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-500.woff2") format("woff2"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-500.woff") format("woff"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-500.svg") format("svg");
@@ -1432,7 +1553,8 @@ textarea::-moz-input-placeholder {
   font-weight: 600;
   font-style: normal;
   src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-600.eot");
-  src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-600.eot") format("embedded-opentype"),
+  src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-600.eot")
+      format("embedded-opentype"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-600.woff2") format("woff2"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-600.woff") format("woff"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-600.svg") format("svg");
@@ -1443,7 +1565,8 @@ textarea::-moz-input-placeholder {
   font-weight: bold;
   font-style: normal;
   src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-700.eot");
-  src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-700.eot") format("embedded-opentype"),
+  src: url("fonts/notoserifkr/noto-serif-kr-v15-korean-700.eot")
+      format("embedded-opentype"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-700.woff2") format("woff2"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-700.woff") format("woff"),
     url("fonts/notoserifkr/noto-serif-kr-v15-korean-700.svg") format("svg");
@@ -1454,7 +1577,8 @@ textarea::-moz-input-placeholder {
   font-weight: normal;
   font-style: normal;
   src: url("fonts/castoro/castoro-v8-latin-regular.eot");
-  src: url("fonts/castoro/castoro-v8-latin-regular.eot") format("embedded-opentype"),
+  src: url("fonts/castoro/castoro-v8-latin-regular.eot")
+      format("embedded-opentype"),
     url("fonts/castoro/castoro-v8-latin-regular.woff2") format("woff2"),
     url("fonts/castoro/castoro-v8-latin-regular.woff") format("woff"),
     url("fonts/castoro/castoro-v8-latin-regular.ttf") format("truetype");
@@ -1756,7 +1880,7 @@ textarea::-moz-input-placeholder {
   clear: both;
 }
 
-.pdt_head dl.price dd.normal+dt {
+.pdt_head dl.price dd.normal + dt {
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
@@ -1942,5 +2066,96 @@ textarea::-moz-input-placeholder {
   right: 0;
   font-size: 16px;
   color: #ff4000;
+}
+@keyframes ldio-f4nnk2ltl0v {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.ldio-f4nnk2ltl0v div {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999; /* 다른 요소 위에 표시하기 위한 z-index 값 */
+  animation: ldio-f4nnk2ltl0v linear 1s infinite;
+  background: #fe718d;
+  width: 18.240000000000002px;
+  height: 36.480000000000004px;
+  border-radius: 9.120000000000001px / 18.240000000000002px;
+  transform-origin: 9.120000000000001px 79.04px;
+}
+.ldio-f4nnk2ltl0v div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -0.9166666666666666s;
+  background: #fe718d;
+}
+.ldio-f4nnk2ltl0v div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -0.8333333333333334s;
+  background: #f47e60;
+}
+.ldio-f4nnk2ltl0v div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.75s;
+  background: #f8b26a;
+}
+.ldio-f4nnk2ltl0v div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.6666666666666666s;
+  background: #abbd81;
+}
+.ldio-f4nnk2ltl0v div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.5833333333333334s;
+  background: #849b87;
+}
+.ldio-f4nnk2ltl0v div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.5s;
+  background: #6492ac;
+}
+.ldio-f4nnk2ltl0v div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.4166666666666667s;
+  background: #637cb5;
+}
+.ldio-f4nnk2ltl0v div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.3333333333333333s;
+  background: #6a63b6;
+}
+.ldio-f4nnk2ltl0v div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.25s;
+  background: #fe718d;
+}
+.ldio-f4nnk2ltl0v div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.16666666666666666s;
+  background: #f47e60;
+}
+.ldio-f4nnk2ltl0v div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.08333333333333333s;
+  background: #f8b26a;
+}
+.ldio-f4nnk2ltl0v div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+  background: #abbd81;
+}
+.loadingio-spinner-spinner-pz89b3jiaad {
+  width: 304px;
+  height: 304px;
+  display: inline-block;
+  overflow: hidden;
+  background: #ffffff;
+}
+.ldio-f4nnk2ltl0v div {
+  box-sizing: content-box;
 }
 </style>

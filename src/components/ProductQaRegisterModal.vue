@@ -97,6 +97,7 @@
         type="button"
         class="btn"
         @click="closeModal"
+        style="cursor: pointer;"
       >
         취소하기
       </button>
@@ -104,6 +105,7 @@
         type="submit"
         class="btn black"
         @click="sendRegisterQnaData"
+        style="cursor: pointer;"
       >
         작성하기
       </button>

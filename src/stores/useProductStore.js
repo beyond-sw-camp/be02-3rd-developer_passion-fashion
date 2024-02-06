@@ -5,7 +5,7 @@ import axios from "axios";
 const backend = 'https://www.lonuashop.kro.kr/api';
 // const backend = "http://localhost:8080";
 export const useProductStore = defineStore("product", {
-  state: () => ({ idx:0 , product:""}),
+  state: () => ({ idx:0 , product:"", isLoading: true}),
   actions: {
     async addCartAxios() {
       
@@ -29,7 +29,7 @@ export const useProductStore = defineStore("product", {
           },
         });
 
-        
+        this.isLoading = false;
         
       } catch (error) {
         console.error("에러 발생:", error);
@@ -42,6 +42,7 @@ export const useProductStore = defineStore("product", {
 
       try {
         this.product = response.data.result;
+        this.isLoading = false;
       } catch {
         return "error!";
       }
