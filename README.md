@@ -4,6 +4,10 @@
 
 <br>
 
+## &nbsp;👔[ LONUA 데모 사이트 바로가기](https://www.lonuashop.kro.kr) 👔
+
+<br>
+
 ### 🤼‍♂️팀원 소개
 
 <br><br>
@@ -61,8 +65,6 @@
 <br>
 
 ## 💻 기능 명세서
-
-### &nbsp;&nbsp;　 ➡ &nbsp;[ LONUA 웹사이트 바로가기](https://www.lonuashop.kro.kr)
 
 <br>
 <br>
