@@ -126,7 +126,7 @@
          <summary><b>브랜드별 상품 목록 조회</b></summary>
                   <br>
          <p><b>➡ 회원이 헤더에서 원하는 "브랜드를 선택" 하여 브랜드 별 상품 목록을 조회한다.</b></p><br>
-         <p><img src=""/></p>
+         <p><img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/148875644/ba629cb3-cd0a-41e4-b20b-4ce9d754c4d2"/></p>
          </details><br>
          	 <details>
          <summary><b>카테고리별 상품 목록 조회</b></summary>
@@ -144,7 +144,7 @@
          <summary><b>상/하체 유형 상품 목록 조회</b></summary>
                   <br>
          <p><b>➡ 회원이 회원가입 시 입력한 상/하체 유형에 따라 본인과 동일한 회원들이 많이 구매한 상품 목록을 조회한다.</b></p><br>
-         <p><img src=""/></p>
+         <p><img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/148875644/a9893a2a-1d4b-47ee-9d07-fcf2e9ffb833"/></p>
          </details><br>
 	 <details>
          <summary><b>상품에 대한 좋아요 기능</b></summary>
