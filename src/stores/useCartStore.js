@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-const backend = 'https://www.lonuashop.kro.kr/api';
+const backend = "https://www.lonuashop.kro.kr/api";
 // const backend = "http://localhost:8080";
 const storedToken = sessionStorage.getItem("token");
 
@@ -21,12 +21,12 @@ export const useCartStore = defineStore("cart", {
     isCartExist: true,
     isLoading: false,
     productNameList: [],
-    ordersProductName: ""
+    ordersProductName: "",
   }),
   actions: {
     updateTotalPrice(updatePrice) {
       this.totalPrice = updatePrice;
-      this.totalPoint = Math.floor(this.totalPrice / 100)
+      this.totalPoint = Math.floor(this.totalPrice / 100);
       this.cartCount = this.productIdxList.length;
     },
     // 장바구니 목록 조회
@@ -126,10 +126,11 @@ export const useCartStore = defineStore("cart", {
     submitOrder() {
       console.log(this.totalPoint);
       this.isLoading = true;
-      
-      if(this.productNameList.length > 1) {
-        console.log(this.productNameList.length)
-        this.ordersProductName = this.productNameList[0] + " 등 " + this.productNameList.length + "건";
+
+      if (this.productNameList.length > 1) {
+        console.log(this.productNameList.length);
+        this.ordersProductName =
+          this.productNameList[0] + " 등 " + this.productNameList.length + "건";
       } else {
         this.ordersProductName = this.productNameList[0];
       }
@@ -143,6 +144,12 @@ export const useCartStore = defineStore("cart", {
         return;
       }
 
+      if (this.totalPoint.includes(",")) {
+        const userMileage = parseInt(this.totalPoint.replace(",", ""));
+      } else {
+        const userMileage = parseInt(this.totalPoint);
+      }
+
       // 주문 정보 생성
       const orderData = {
         amount: this.totalPrice,
@@ -154,7 +161,7 @@ export const useCartStore = defineStore("cart", {
         couponIdxList: this.couponIdxList,
         productCouponMap: this.productCouponMap,
         ordersCartIdxList: this.ordersCartIdxList,
-        mileage: parseInt(this.totalPoint.replace(',', ''))
+        mileage: userMileage,
       };
 
       // 아임포트 결제 요청
