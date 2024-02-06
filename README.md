@@ -58,6 +58,7 @@
 
 ### 💡&nbsp;&nbsp;시스템 아키텍처
 
+<br>
 
 ![스크린샷 2024-02-06 114202](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/148875644/0770bd98-250a-4eb9-9802-256ba44e2eeb)
 
