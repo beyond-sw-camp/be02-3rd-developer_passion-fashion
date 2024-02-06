@@ -25,7 +25,8 @@
               <div class="img_area">
                 <Splide
                   :options="{
-                    type: 'loop',
+                    type: 'slide',
+                    rewind: true,
                     width: '100%',
                     perPage: 1,
                   }"
