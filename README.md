@@ -58,9 +58,8 @@
 
 ### 💡&nbsp;&nbsp;시스템 아키텍처
 
-<br>
 
-![](https://velog.velcdn.com/images/thanks9807/post/eac55d8e-53aa-4c8d-b8fe-e68c4bf66bba/image.jpg)
+![스크린샷 2024-02-06 114202](https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/148875644/0770bd98-250a-4eb9-9802-256ba44e2eeb)
 
 <br>
 
@@ -106,7 +105,7 @@
          <summary><b>카카오 로그인</b></summary>
                   <br>
          <p><b>➡ 회원이 카카오 계정을 통해 회원가입/로그인 후 서비스를 이용한다.</b></p><br>
-         <p><img src=""/></p>
+         <p><img src="https://github.com/beyond-sw-camp/be02-3rd-developer_passion-fashion/assets/148875644/49d732e8-ba59-4359-8e0b-44feb120b302"/></p>
          </details><br>
 	 <details>
          <summary><b>쿠폰 조회 및 사용</b></summary>
@@ -125,8 +124,20 @@
 	 <details>
          <summary><b>브랜드별 상품 목록 조회</b></summary>
                   <br>
-         <p><b>➡ 회원이 헤더에서 원하는 "브랜드를 클릭" 하여 브랜드 별 상품 목록을 조회한다.</b></p><br>
-         <p><img src="https://velog.velcdn.com/images/thanks9807/post/0451f9a0-1c9e-4919-9465-544705aa5886/image.gif"/></p>
+         <p><b>➡ 회원이 헤더에서 원하는 "브랜드를 선택" 하여 브랜드 별 상품 목록을 조회한다.</b></p><br>
+         <p><img src=""/></p>
+         </details><br>
+         	 <details>
+         <summary><b>카테고리별 상품 목록 조회</b></summary>
+                  <br>
+         <p><b>➡ 회원이 헤더에서 원하는 "카테고리를 선택" 하여 카테고리 별 상품 목록을 조회한다.</b></p><br>
+         <p><img src=""/></p>
+         </details><br>
+         	 <details>
+         <summary><b>스타일별 상품 목록 조회</b></summary>
+                  <br>
+         <p><b>➡ 회원이 헤더에서 원하는 "스타일을 선택" 하여 스타일 별 상품 목록을 조회한다.</b></p><br>
+         <p><img src=""/></p>
          </details><br>
 	 <details>
          <summary><b>상품에 대한 좋아요 기능</b></summary>
