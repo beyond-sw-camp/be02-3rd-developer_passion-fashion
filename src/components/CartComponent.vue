@@ -307,7 +307,7 @@ export default {
         // console.log(this.cartStore.ordersCartIdxList);
         // console.log(this.cartStore.productNameList);
         this.cartStore.updateTotalPrice(
-          this.cartStore.totalPrice - this.cart.salePrice
+          this.cartStore.totalPrice - this.cart.salePrice          
         );
       }
     },
