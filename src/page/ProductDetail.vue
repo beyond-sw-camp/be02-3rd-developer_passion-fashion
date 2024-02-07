@@ -25,7 +25,8 @@
               <div class="img_area">
                 <Splide
                   :options="{
-                    type: 'loop',
+                    type: 'slide',
+                    rewind: true,
                     width: '100%',
                     perPage: 1,
                   }"
@@ -1802,6 +1803,7 @@ textarea::-moz-input-placeholder {
   width: 100%;
   height: 700px;
   position: relative;
+  
 }
 
 .pdt_head .img_goods .img_area:hover {
