@@ -1,5 +1,5 @@
 <template>
-    <div class="loadingio-spinner-spinner" v-if="productStore.isLoading">
+  <div class="loadingio-spinner-spinner" v-if="productStore.isLoading">
     <div class="ldio-f4nnk2ltl0v">
       <div></div>
       <div></div>
@@ -39,7 +39,7 @@
                     v-for="(image, index) in productStore.product.productImages"
                     :key="index"
                   >
-                    <img :width="imgWidth" height="700" :src="image"  />
+                    <img :width="imgWidth" height="700" :src="image" />
                   </SplideSlide>
                 </Splide>
               </div>
@@ -61,11 +61,20 @@
 
           <div class="right_col pdt_info">
             <div class="h_group">
-              <button type="button" class="my_brand" onclick="FuncLogin();">
-                <em>MY</em> <span></span> <em>BRAND</em>
-              </button>
-              <div class="product_front">
-                <p class="front" id="spanOutItemProductName"></p>
+              <button type="button" class="my_brand"></button>
+              <div class="h_group">
+                <h2 class="brand">
+                  <a>{{ productStore.product.brandName }}</a>
+                </h2>
+                <!-- ITDEV-1740 product_front div 신규생성하여 감싸줌 -->
+                <div class="product_front">
+                  <p class="front" id="spanOutItemProductName"></p>
+                  <h3 class="product cottonusa">
+                    {{ productStore.product.productName }}
+                  </h3>
+                  <!-- //공유 -->
+                </div>
+                <!-- //ITDEV-1740 -->
               </div>
             </div>
             <div class="price_wrap">
@@ -162,349 +171,353 @@
       </div>
 
       <ul id="review" class="tab tab_item4">
-      <li><a href="#detail">DETAIL</a></li>
-      <li class="active"><a href="#review">REVIEW </a></li>
-      <li><a href="#qa">Q&amp;A</a></li>
-      <li><a href="#delivery">RETURN &amp; DELIVERY</a></li>
-    </ul>
-    <!-- //tab -->
-    <div class="pdt_contents pdt_review">
-      <div id="reviewList">
-        <table class="pdt_review_table tbl_review">
+        <li><a href="#detail">DETAIL</a></li>
+        <li class="active"><a href="#review">REVIEW </a></li>
+        <li><a href="#qa">Q&amp;A</a></li>
+        <li><a href="#delivery">RETURN &amp; DELIVERY</a></li>
+      </ul>
+      <!-- //tab -->
+      <div class="pdt_contents pdt_review">
+        <div id="reviewList">
+          <table class="pdt_review_table tbl_review">
+            <colgroup>
+              <col style="width: 160px" />
+              <col style="width: auto" />
+            </colgroup>
+            <thead>
+              <tr v-if="reviewStore.reviews && reviewStore.reviews.length > 0">
+                <th>평가</th>
+                <th>리뷰</th>
+              </tr>
+            </thead>
+            <tbody
+              v-if="!reviewStore.reviews || reviewStore.reviews.length === 0"
+            >
+              <tr>
+                <td colspan="2" class="no_data">
+                  첫 리뷰어가 되어 보세요!<br />추가 <span>포인트</span> 적립해
+                  드려요.
+                  <a href="/UserOrders">리뷰 작성하러 가기</a>
+                </td>
+              </tr>
+            </tbody>
+            <tbody v-if="reviewStore.reviews && reviewStore.reviews.length > 0">
+              <tr v-for="(review, index) in reviewStore.reviews" :key="index">
+                <td>
+                  <div class="pdt_review_align_wrap">
+                    <div class="pdt_review_valign">
+                      <div class="star-grade">
+                        {{
+                          review.evaluation === 1
+                            ? "★"
+                            : review.evaluation === 2
+                            ? "★★"
+                            : review.evaluation === 3
+                            ? "★★★"
+                            : review.evaluation === 4
+                            ? "★★★★"
+                            : review.evaluation === 5
+                            ? "★★★★★"
+                            : ""
+                        }}
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <ul class="pdt_review_photo">
+                    <li class="open-layer open-pop_photoDetail">
+                      <img :src="review.reviewPhoto" />
+                    </li>
+                  </ul>
+
+                  <div class="pdt_review_info">
+                    <div class="product_review_info_left">
+                      <div class="pdt_review_option">
+                        <p>
+                          <span></span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="product_review_info_right">
+                      <em>{{ review.name }}</em>
+                      <span>{{ review.updatedAt }}</span>
+                    </p>
+                  </div>
+
+                  <div class="pdt_review_detail">
+                    <p class="pdt_review_text">
+                      {{ review.reviewContent }}
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- //REVIEW contents -->
+      <!--Q&A contents //-->
+      <!-- tab -->
+      <ul id="qa" class="tab tab_item4">
+        <li><a href="#detail">DETAIL</a></li>
+        <li><a href="#review">REVIEW </a></li>
+        <li class="active"><a href="#qa">Q&amp;A</a></li>
+        <li><a href="#delivery">RETURN &amp; DELIVERY</a></li>
+      </ul>
+      <!-- //tab -->
+      <div class="pdt_contents qna">
+        <div class="fr" style="text-align: right">
+          <button type="button" class="btn black" @click="openQaModal">
+            상품문의
+          </button>
+        </div>
+        <productQaRegisterModal ref="qaModal"></productQaRegisterModal>
+
+        <table class="cols tbl_qna my-qna">
           <colgroup>
-            <col style="width: 160px" />
-            <col style="width: auto" />
+            <col style="width: 98px" />
+            <col />
+            <col style="width: 115px" />
           </colgroup>
-          <thead>
-            <tr v-if="reviewStore.reviews && reviewStore.reviews.length > 0">
-              <th>평가</th>
-              <th>리뷰</th>
-            </tr>
-          </thead>
           <tbody
-            v-if="!reviewStore.reviews || reviewStore.reviews.length === 0"
+            v-if="!qnaStore.productQnas || qnaStore.productQnas.length === 0"
           >
             <tr>
-              <td colspan="2" class="no_data">
-                첫 리뷰어가 되어 보세요!<br />추가 <span>포인트</span> 적립해
-                드려요.
-                <a href="/UserOrders">리뷰 작성하러 가기</a>
+              <td colspan="3" class="no_data">
+                상품문의가 없습니다.<br />
+                <span>질문</span>은 언제나 환영!
               </td>
             </tr>
           </tbody>
-          <tbody v-if="reviewStore.reviews && reviewStore.reviews.length > 0">
-            <tr v-for="(review, index) in reviewStore.reviews" :key="index">
-              <td>
-                <div class="pdt_review_align_wrap">
-                  <div class="pdt_review_valign">
-                    <div class="star-grade">
-                      {{
-                        review.evaluation === 1
-                          ? "★"
-                          : review.evaluation === 2
-                          ? "★★"
-                          : review.evaluation === 3
-                          ? "★★★"
-                          : review.evaluation === 4
-                          ? "★★★★"
-                          : review.evaluation === 5
-                          ? "★★★★★"
-                          : ""
-                      }}
+          <tbody>
+            <template
+              v-for="(productQna, index) in qnaStore.productQnas"
+              :key="index"
+            >
+              <tr class="">
+                <td>
+                  <em class="icon_finish">{{
+                    productQna.hasAnswer ? "답변완료" : "답변 대기 중"
+                  }}</em>
+                </td>
+                <td class="question">
+                  <p class="tit">
+                    <a @click="qnaDetailtoggle(index)" style="cursor: pointer">
+                      {{ productQna.questionTitle }}
+                    </a>
+                  </p>
+                  <span class="name">{{ productQna.userName }}</span>
+                </td>
+                <td class="date">{{ productQna.updatedAt }}</td>
+              </tr>
+              <tr class="question_detail" v-if="qnaDetail === index">
+                <td colspan="3">
+                  <div class="cont">
+                    <div class="ask">
+                      <strong class="tit_sub">질문</strong>
+                      <p class="txt">{{ productQna.questionContent }}</p>
                     </div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <ul class="pdt_review_photo">
-                  <li class="open-layer open-pop_photoDetail">
-                    <img :src="review.reviewPhoto" />
-                  </li>
-                </ul>
-
-                <div class="pdt_review_info">
-                  <div class="product_review_info_left">
-                    <div class="pdt_review_option">
-                      <p>
-                        <span></span>
+                    <div class="answer">
+                      <strong class="tit_sub">답변</strong>
+                      <p class="txt">
+                        <span class="date">2024.02.04 04:07</span>
+                        답변 테이블도 만들었어야 했네..?
                       </p>
                     </div>
                   </div>
-                  <p class="product_review_info_right">
-                    <em>{{ review.name }}</em>
-                    <span>{{ review.updatedAt }}</span>
-                  </p>
-                </div>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
 
-                <div class="pdt_review_detail">
-                  <p class="pdt_review_text">
-                    {{ review.reviewContent }}
-                  </p>
-                </div>
+        <!-- qa write -->
+
+        <!-- //qa write -->
+        <!-- qa read -->
+        <div id="qaList"></div>
+      </div>
+      <!-- //Q&A contents -->
+      <!--Return & Delivery contents //-->
+      <!-- tab -->
+      <ul id="delivery" class="tab tab_item4">
+        <li><a href="#detail">DETAIL</a></li>
+        <li><a href="#review">REVIEW </a></li>
+        <li><a href="#qa">Q&amp;A</a></li>
+        <li class="active"><a href="#delivery">RETURN &amp; DELIVERY</a></li>
+      </ul>
+      <!-- //tab -->
+      <div class="pdt_contents delivery">
+        <div class="title">
+          <h5>배송/교환/반품/AS 관련 유의사항</h5>
+          <p>
+            상품상세설명에 배송/교환/반품/취소 관련 안내가 기재된 경우 다음
+            안내사항보다 우선 적용됩니다.
+          </p>
+        </div>
+        <table>
+          <colgroup>
+            <col width="270" />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>배송정보</th>
+              <td>
+                <ul>
+                  <li>
+                    상품별로 상품 특성 및 배송지에 따라 배송유형 및 소요기간이
+                    달라집니다.
+                  </li>
+                  <li>
+                    일부 주문상품 또는 예약상품의 경우 기본 배송일 외에 추가
+                    배송 소요일이 발생될 수 있습니다.
+                  </li>
+                  <li>
+                    동일 브랜드의 상품이라도 상품별 출고일시가 달라 각각 배송될
+                    수 있습니다.
+                  </li>
+                  <li>
+                    제주 및 도서산간 지역은 출고, 반품, 교환시 추가 배송비(항공,
+                    도선료)가 부과 될 수 있습니다.
+                  </li>
+                  <li>
+                    상품의 배송비는 공급업체의 정책에 따라 다르오며 공휴일 및
+                    휴일은 배송이 불가합니다.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>취소/반품/교환 안내</th>
+              <td>
+                <ul>
+                  <!--  [ITDEV-4073]교환 반품 회수지정보    -->
+                  <li>
+                    회수지 정보 : &#xACBD;&#xAE30;&#xB3C4;
+                    &#xC6A9;&#xC778;&#xC2DC; &#xCC98;&#xC778;&#xAD6C;
+                    &#xC774;&#xB3D9;&#xC74D;
+                    &#xB355;&#xC131;&#xC0B0;&#xB2E8;2&#xB85C; 5-24
+                    &#xBA54;&#xC774;&#xC800;&#xC6D4;&#xB4DC;
+                    &#xBB3C;&#xB958;&#xC13C;&#xD130;
+                  </li>
+                  <li>
+                    동일 브랜드의 상품이라도 교환/반품 회수지가 다를 수
+                    있습니다. 상품상세 정보 또는 회수지 정보를 확인하신 후
+                    반드시 지정된 회수지로 보내주세요.
+                  </li>
+                  <li>
+                    상품을 지정된 회수지가 아닌곳으로 보내실 경우 택배 분실 또는
+                    재발송에 따른 추가 비용이 발생할 수 있습니다.
+                  </li>
+                  <li>
+                    고객센터나 "My Page>주문취소/교환/반품 신청"을 통한
+                    교환/반품 접수 없이 상품을 회수지로 보내실 경우 재발송에
+                    따른 추가 비용이 발생할 수 있으며 경우에 따라서는
+                    교환/반품이 어려울 수 있습니다.
+                  </li>
+                  <!--  [ITDEV-4073]교환 반품 회수지정보    // -->
+                  <li class="bold">
+                    상품하자 이외 사이즈, 색상교환 등 단순 변심에 의한 교환/반품
+                    택배비 고객부담으로 왕복택배비가 발생합니다. (전자상거래
+                    등에서의 소비자보호에 관한 법률 제18조(청약 철회등)9항에
+                    의거 소비자의 사정에 의한 청약 철회 시 택배비는 소비자
+                    부담입니다.)
+                  </li>
+                  <li>
+                    결제완료 직후 즉시 주문취소는 "MY Page> 취소/교환/반품
+                    신청"에서 직접 처리 가능합니다.
+                  </li>
+                  <li>
+                    주문완료 후 재고 부족 등으로 인해 주문 취소 처리가 될 수도
+                    있는 점 양해 부탁드립니다.
+                  </li>
+                  <li>
+                    주문상태가 상품준비중인 경우 취소신청이 가능하며 판매자의
+                    승인 여부(이미 배송을 했거나 포장을 완료한 경우)에 따라
+                    취소가 불가능할 수 있습니다.
+                  </li>
+                  <li>
+                    교환 신청은 최초 1회에 한하며, 교환 배송 완료 후에는 추가
+                    교환 신청은 불가합니다.
+                  </li>
+                  <li>
+                    반품/교환은 미사용 제품에 한해 배송완료 후 7일 이내 접수하여
+                    주십시오.
+                  </li>
+                  <li>
+                    임의반품은 불가하오니 반드시 고객센터나 "MY Page>
+                    주문취소/교환/반품 신청"을 통해서 신청접수를 하시기
+                    바랍니다.
+                  </li>
+                  <li>
+                    상품하자, 오배송의 경우 택배비 무료로 교환/반품이 가능하지만
+                    모니터의 색상차이, 착용감, 사이즈의 개인의 선호도는 상품의
+                    하자 사유가 아닙니다.
+                  </li>
+                  <!--<li>단 위생용품 및 가전, 가구, 귀금속 등의 경우 취소/교환/반품 요청이 제한될 수 있습니다.</li>-->
+                  <!--<li>주문제작 상품 및 상품의 본품박스, 택 등이 제거되어 있을 경우 반품 / 교환이 불가능합니다.</li>-->
+                  <li>
+                    고객 부주의로 상품이 훼손, 변경된 경우 반품 / 교환이 불가능
+                    합니다.
+                  </li>
+                  <li>
+                    취소/반품 대금환불이 지연 시 전자상거래법에 의거하여
+                    환불지연 배상처리 절차가 진행됩니다.
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>반품/교환 불가능한 경우</th>
+              <td>
+                <ul>
+                  <li>
+                    제품을 사용 또는 훼손한 경우, 사은품 누락, 상품 TAG, 보증서,
+                    상품 부자재가 제거 혹은 분실된 경우
+                  </li>
+                  <li>
+                    밀봉포장을 개봉했거나 내부 포장재를 훼손 또는 분실한
+                    경우(단, 제품확인을 위한 개봉 제외)
+                  </li>
+                  <li>
+                    시간이 경과되어 재판매가 어려울 정도로 상품가치가 상실된
+                    경우
+                  </li>
+                  <li>
+                    고객님의 요청에 따라 주문 제작되어 고객님 외에 사용이 어려운
+                    경우
+                  </li>
+                  <li>배송된 상품이 설치가 완료된 경우(가전, 가구 등)</li>
+                  <li>
+                    기타 전자상거래 등에서의 소비자보호에 관한 법률이 정하는
+                    청약철회 제한사유에 해당하는 경우
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>A/S 안내</th>
+              <td>
+                <ul>
+                  <li>
+                    A/S 기준이나 가능여부는 브랜드와 상품에 따라 다르므로 관련
+                    문의는 더블유컨셉 고객센터를 통해 부탁드립니다.
+                  </li>
+                  <li>
+                    상품불량에 의한 반품, 교환, A/S, 환불, 품질보증 및 피해보상
+                    등에 관한 사항은 소비자분쟁해결기준(공정거래위원회 고시)에
+                    따라 받으실 수 있습니다.
+                  </li>
+                </ul>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <!-- //REVIEW contents -->
-    <!--Q&A contents //-->
     <!-- tab -->
-    <ul id="qa" class="tab tab_item4">
-      <li><a href="#detail">DETAIL</a></li>
-      <li><a href="#review">REVIEW </a></li>
-      <li class="active"><a href="#qa">Q&amp;A</a></li>
-      <li><a href="#delivery">RETURN &amp; DELIVERY</a></li>
-    </ul>
-    <!-- //tab -->
-    <div class="pdt_contents qna">
-      <div class="fr" style="text-align: right">
-        <button type="button" class="btn black" @click="openQaModal">
-          상품문의
-        </button>
-      </div>
-      <productQaRegisterModal ref="qaModal"></productQaRegisterModal>
-      
-      <table class="cols tbl_qna my-qna">
-        <colgroup>
-          <col style="width: 98px" />
-          <col />
-          <col style="width: 115px" />
-        </colgroup>
-        <tbody v-if="!qnaStore.productQnas || qnaStore.productQnas.length === 0">
-          <tr>
-            <td colspan="3" class="no_data">
-              상품문의가 없습니다.<br />
-              <span>질문</span>은 언제나 환영!
-            </td>
-          </tr>
-        </tbody>
-        <tbody>
-          <template
-            v-for="(productQna, index) in qnaStore.productQnas"
-            :key="index"
-          >
-            <tr class="">
-              <td>
-                <em class="icon_finish">{{
-                  productQna.hasAnswer ? "답변완료" : "답변 대기 중"
-                }}</em>
-              </td>
-              <td class="question">
-                <p class="tit">
-                  <a @click="qnaDetailtoggle(index)" style="cursor: pointer">
-                    {{ productQna.questionTitle }}
-                  </a>
-                </p>
-                <span class="name">{{ productQna.userName }}</span>
-              </td>
-              <td class="date">{{ productQna.updatedAt }}</td>
-            </tr>
-            <tr class="question_detail" v-if="qnaDetail === index">
-              <td colspan="3">
-                <div class="cont">
-                  <div class="ask">
-                    <strong class="tit_sub">질문</strong>
-                    <p class="txt">{{ productQna.questionContent }}</p>
-                  </div>
-                  <div class="answer">
-                    <strong class="tit_sub">답변</strong>
-                    <p class="txt">
-                      <span class="date">2024.02.04 04:07</span>
-                      답변 테이블도 만들었어야 했네..?
-                    </p>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </template>
-        </tbody>
-      </table>
-
-      <!-- qa write -->
-
-      <!-- //qa write -->
-      <!-- qa read -->
-      <div id="qaList"></div>
-    </div>
-    <!-- //Q&A contents -->
-    <!--Return & Delivery contents //-->
-    <!-- tab -->
-    <ul id="delivery" class="tab tab_item4">
-      <li><a href="#detail">DETAIL</a></li>
-      <li><a href="#review">REVIEW </a></li>
-      <li><a href="#qa">Q&amp;A</a></li>
-      <li class="active"><a href="#delivery">RETURN &amp; DELIVERY</a></li>
-    </ul>
-    <!-- //tab -->
-    <div class="pdt_contents delivery">
-      <div class="title">
-        <h5>배송/교환/반품/AS 관련 유의사항</h5>
-        <p>
-          상품상세설명에 배송/교환/반품/취소 관련 안내가 기재된 경우 다음
-          안내사항보다 우선 적용됩니다.
-        </p>
-      </div>
-      <table>
-        <colgroup>
-          <col width="270" />
-          <col />
-        </colgroup>
-        <tbody>
-          <tr>
-            <th>배송정보</th>
-            <td>
-              <ul>
-                <li>
-                  상품별로 상품 특성 및 배송지에 따라 배송유형 및 소요기간이
-                  달라집니다.
-                </li>
-                <li>
-                  일부 주문상품 또는 예약상품의 경우 기본 배송일 외에 추가 배송
-                  소요일이 발생될 수 있습니다.
-                </li>
-                <li>
-                  동일 브랜드의 상품이라도 상품별 출고일시가 달라 각각 배송될 수
-                  있습니다.
-                </li>
-                <li>
-                  제주 및 도서산간 지역은 출고, 반품, 교환시 추가 배송비(항공,
-                  도선료)가 부과 될 수 있습니다.
-                </li>
-                <li>
-                  상품의 배송비는 공급업체의 정책에 따라 다르오며 공휴일 및
-                  휴일은 배송이 불가합니다.
-                </li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <th>취소/반품/교환 안내</th>
-            <td>
-              <ul>
-                <!--  [ITDEV-4073]교환 반품 회수지정보    -->
-                <li>
-                  회수지 정보 : &#xACBD;&#xAE30;&#xB3C4;
-                  &#xC6A9;&#xC778;&#xC2DC; &#xCC98;&#xC778;&#xAD6C;
-                  &#xC774;&#xB3D9;&#xC74D;
-                  &#xB355;&#xC131;&#xC0B0;&#xB2E8;2&#xB85C; 5-24
-                  &#xBA54;&#xC774;&#xC800;&#xC6D4;&#xB4DC;
-                  &#xBB3C;&#xB958;&#xC13C;&#xD130;
-                </li>
-                <li>
-                  동일 브랜드의 상품이라도 교환/반품 회수지가 다를 수 있습니다.
-                  상품상세 정보 또는 회수지 정보를 확인하신 후 반드시 지정된
-                  회수지로 보내주세요.
-                </li>
-                <li>
-                  상품을 지정된 회수지가 아닌곳으로 보내실 경우 택배 분실 또는
-                  재발송에 따른 추가 비용이 발생할 수 있습니다.
-                </li>
-                <li>
-                  고객센터나 "My Page>주문취소/교환/반품 신청"을 통한 교환/반품
-                  접수 없이 상품을 회수지로 보내실 경우 재발송에 따른 추가
-                  비용이 발생할 수 있으며 경우에 따라서는 교환/반품이 어려울 수
-                  있습니다.
-                </li>
-                <!--  [ITDEV-4073]교환 반품 회수지정보    // -->
-                <li class="bold">
-                  상품하자 이외 사이즈, 색상교환 등 단순 변심에 의한 교환/반품
-                  택배비 고객부담으로 왕복택배비가 발생합니다. (전자상거래
-                  등에서의 소비자보호에 관한 법률 제18조(청약 철회등)9항에 의거
-                  소비자의 사정에 의한 청약 철회 시 택배비는 소비자 부담입니다.)
-                </li>
-                <li>
-                  결제완료 직후 즉시 주문취소는 "MY Page> 취소/교환/반품
-                  신청"에서 직접 처리 가능합니다.
-                </li>
-                <li>
-                  주문완료 후 재고 부족 등으로 인해 주문 취소 처리가 될 수도
-                  있는 점 양해 부탁드립니다.
-                </li>
-                <li>
-                  주문상태가 상품준비중인 경우 취소신청이 가능하며 판매자의 승인
-                  여부(이미 배송을 했거나 포장을 완료한 경우)에 따라 취소가
-                  불가능할 수 있습니다.
-                </li>
-                <li>
-                  교환 신청은 최초 1회에 한하며, 교환 배송 완료 후에는 추가 교환
-                  신청은 불가합니다.
-                </li>
-                <li>
-                  반품/교환은 미사용 제품에 한해 배송완료 후 7일 이내 접수하여
-                  주십시오.
-                </li>
-                <li>
-                  임의반품은 불가하오니 반드시 고객센터나 "MY Page>
-                  주문취소/교환/반품 신청"을 통해서 신청접수를 하시기 바랍니다.
-                </li>
-                <li>
-                  상품하자, 오배송의 경우 택배비 무료로 교환/반품이 가능하지만
-                  모니터의 색상차이, 착용감, 사이즈의 개인의 선호도는 상품의
-                  하자 사유가 아닙니다.
-                </li>
-                <!--<li>단 위생용품 및 가전, 가구, 귀금속 등의 경우 취소/교환/반품 요청이 제한될 수 있습니다.</li>-->
-                <!--<li>주문제작 상품 및 상품의 본품박스, 택 등이 제거되어 있을 경우 반품 / 교환이 불가능합니다.</li>-->
-                <li>
-                  고객 부주의로 상품이 훼손, 변경된 경우 반품 / 교환이 불가능
-                  합니다.
-                </li>
-                <li>
-                  취소/반품 대금환불이 지연 시 전자상거래법에 의거하여 환불지연
-                  배상처리 절차가 진행됩니다.
-                </li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <th>반품/교환 불가능한 경우</th>
-            <td>
-              <ul>
-                <li>
-                  제품을 사용 또는 훼손한 경우, 사은품 누락, 상품 TAG, 보증서,
-                  상품 부자재가 제거 혹은 분실된 경우
-                </li>
-                <li>
-                  밀봉포장을 개봉했거나 내부 포장재를 훼손 또는 분실한 경우(단,
-                  제품확인을 위한 개봉 제외)
-                </li>
-                <li>
-                  시간이 경과되어 재판매가 어려울 정도로 상품가치가 상실된 경우
-                </li>
-                <li>
-                  고객님의 요청에 따라 주문 제작되어 고객님 외에 사용이 어려운
-                  경우
-                </li>
-                <li>배송된 상품이 설치가 완료된 경우(가전, 가구 등)</li>
-                <li>
-                  기타 전자상거래 등에서의 소비자보호에 관한 법률이 정하는
-                  청약철회 제한사유에 해당하는 경우
-                </li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <th>A/S 안내</th>
-            <td>
-              <ul>
-                <li>
-                  A/S 기준이나 가능여부는 브랜드와 상품에 따라 다르므로 관련
-                  문의는 더블유컨셉 고객센터를 통해 부탁드립니다.
-                </li>
-                <li>
-                  상품불량에 의한 반품, 교환, A/S, 환불, 품질보증 및 피해보상
-                  등에 관한 사항은 소비자분쟁해결기준(공정거래위원회 고시)에
-                  따라 받으실 수 있습니다.
-                </li>
-              </ul>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
-    <!-- tab -->
-    
   </section>
 </template>
 
@@ -575,8 +588,7 @@ export default {
   mounted() {
     this.imgWidth = "500";
     this.productStore.isLoading = false;
-    
-  }
+  },
 };
 </script>
 
