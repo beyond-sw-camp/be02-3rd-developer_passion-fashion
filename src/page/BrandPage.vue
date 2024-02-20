@@ -107,7 +107,7 @@ export default {
   methods: {
     async getBrnadAll() {
       this.isLoading = true;
-      const backend = 'https://www.lonuashop.kro.kr/api';
+      const backend = 'http://43.202.50.215:80/api';
       //   let backend = "http://localhost:8080";
       await axios.get(backend + "/brand/listall").then((res) => {
         console.log(res);
@@ -122,7 +122,7 @@ export default {
 
 
     async getBrnadPage(page, size) {
-      const backend = 'https://www.lonuashop.kro.kr/api';
+      const backend = 'http://43.202.50.215:80/api';
       //   let backend = "http://localhost:8080";
       await axios.get(backend + "/brand/list/" + page + "/" + size).then((res) => {
         console.log(res);
@@ -140,7 +140,7 @@ export default {
     async getProductPageByBrandIdx(brandIdx, page, size) {
       console.log(brandIdx);
       await axios.get(
-        "https://www.lonuashop.kro.kr/api/product/brand/" + brandIdx + "/" + page + "/" + size,
+        "http://43.202.50.215:80/api/product/brand/" + brandIdx + "/" + page + "/" + size,
         // "http://localhost:8080/product/brand/" + brandIdx + "/" + page + "/" + size,
       ).then((res) => {
         console.log("getProductPageByBrandIdx 성공!");

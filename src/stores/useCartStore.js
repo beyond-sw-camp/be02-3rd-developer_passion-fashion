@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-const backend = "https://www.lonuashop.kro.kr/api";
+const backend = "http://43.202.50.215:80/api";
 // const backend = "http://localhost:8080";
 const storedToken = sessionStorage.getItem("token");
 
@@ -143,11 +143,11 @@ export const useCartStore = defineStore("cart", {
         console.error("IMP 객체를 찾을 수 없습니다.");
         return;
       }
-
+      let userMileage;
       if (this.totalPoint.includes(",")) {
-        const userMileage = parseInt(this.totalPoint.replace(",", ""));
+        userMileage = parseInt(this.totalPoint.replace(",", ""));
       } else {
-        const userMileage = parseInt(this.totalPoint);
+        userMileage = parseInt(this.totalPoint);
       }
 
       // 주문 정보 생성

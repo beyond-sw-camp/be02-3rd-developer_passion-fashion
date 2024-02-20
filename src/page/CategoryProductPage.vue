@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         async getProductPage(page, size) {
-            const backend = 'https://www.lonuashop.kro.kr/api';
+            const backend = 'http://43.202.50.215:80/api';
             // let backend = "http://localhost:8080";
             await axios.get(backend + "/product/categorylist/" + this.$route.params.CategoryIdx + "/" + page + "/" + size).then((res) => {
                 console.log(this.$route.params.CategoryIdx);
