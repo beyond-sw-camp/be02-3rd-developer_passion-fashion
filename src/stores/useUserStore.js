@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-// const backend = 'http://43.202.50.215:80/api';
-const backend = "http://172.17.0.4:8080";
+const backend = 'http://localhost:7272/api';
+// const backend = "http://172.17.0.4:8080";
 const storedToken = sessionStorage.getItem("token");
 
 export const useUserStore = defineStore("user", {

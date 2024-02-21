@@ -176,7 +176,7 @@ export default {
   },
   methods: {
     async sendData() {
-      const backend = 'http://43.202.50.215:80/api';
+      const backend = 'http://localhost:7272/api';
       // const backend = "http://localhost:8080";
       const productNameElement = document.getElementById("productName");
       const productName = productNameElement ? productNameElement.value : 0;

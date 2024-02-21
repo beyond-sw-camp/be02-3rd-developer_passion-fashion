@@ -137,7 +137,7 @@ export default {
     async getProductPage(page, size) {
       await axios
         .get(
-          "http://43.202.50.215:80/api/product/list/" + page + "/" + size
+          "http://localhost:7272/api/product/list/" + page + "/" + size
         )
         .then((res) => {
           console.log("getProductPage 성공!");
